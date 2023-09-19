@@ -1,0 +1,39 @@
+.Header {
+  background-image: url("./images/heroPhoto.jpg"),
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+  background-size: cover;
+  background-blend-mode: overlay;
+  height: 190px;
+  color: #e3b04b;
+  background-position: bottom;
+  font-family: "Montserrat", sans-serif;
+}
+
+.sitename {
+  display: flex;
+  align-items: center;
+}
+
+.signin {
+  position: fixed;
+  top: 2px;
+  right: 10px;
+  font-size: 13px;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 28px;
+  margin: 10px 30px 25px 30px;
+  text-shadow: 3px 3px 5px #cdcdcd;
+  text-align: center;
+}
+
+img {
+  margin-left: -15px;
+  margin-right: -20px;
+  width: 80px;
+  height: 45px;
+}
