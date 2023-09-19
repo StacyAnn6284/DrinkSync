@@ -1,0 +1,63 @@
+.formCantaner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(20, 22, 24, 0.9);
+  color: #e3b04b;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  align-items: flex-start;
+  text-align: left;
+  border: 2px solid #e3b04b;
+  margin-bottom: 15px;
+}
+
+.loginLabel {
+  padding: 0.25rem 0;
+}
+
+.formButton {
+  align-self: center;
+  background-color: #e3b04b;
+  padding: 15px 74px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.formInput {
+  margin: 0.5rem 0;
+}
+
+.toggleButton {
+  border: none;
+  color: #e3b04b;
+  background-color: rgba(20, 22, 24, 0);
+  margin-top: 10px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.formInput {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.sync {
+  display: flex;
+  align-items: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sync {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}

@@ -1,9 +1,25 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useState } from "react";
+import { Signup } from "./Componenets/LoginSignup/Signup";
+import { Login } from "./Componenets/LoginSignup/Login";
 import "./App.css";
 
 function App() {
-  return <div className="App"></div>;
+  // holds the value of the form being displayed
+  const [currentForm, setCurrentForm] = useState("login");
+
+  const toggleForm = (formName: React.SetStateAction<string>) => {
+    setCurrentForm(formName);
+  };
+
+  return (
+    <div className="App">
+      {currentForm === "login" ? (
+        <Login onFormSwitch={toggleForm} />
+      ) : (
+        <Signup onFormSwitch={toggleForm} />
+      )}
+    </div>
+  );
 }
 
 export default App;
