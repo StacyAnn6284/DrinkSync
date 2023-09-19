@@ -19,4 +19,4 @@ substituteRouter.get("/substitutes", async (req, res) => {
     errorResponse(err, res);
   }
 });
- export default substituteRouter;
+export default substituteRouter;
