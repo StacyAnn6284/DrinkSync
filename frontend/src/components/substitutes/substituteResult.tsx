@@ -1,14 +1,13 @@
-import { substitute } from "../../models/substitute";
+import React from "react";
+import { Substitute } from "../../models/substitute";
 
-interface subResultProps {
-  substitute: substitute;
-}
-
-export const subResult = ({ substitute }: subResultProps) => {
+const SubstituteResult = ({ substitute }: { substitute: Substitute }) => {
   return (
-    <div>
-      <h2>{substitute.missingIngredient}</h2>
-      <h3>{substitute.solution}</h3>
+    <div className="substitute-result">
+      <h2>Missing Ingredient: {substitute.missingIngredient}</h2>
+      <p>Solution: {substitute.solution}</p>
     </div>
   );
 };
+
+export default SubstituteResult;

@@ -14,7 +14,8 @@ substituteRouter.get("/substitutes", async (req, res) => {
     const client = await getClient();
     const cursor = client.db().collection<substitute>("substitutes").find();
     const results = await cursor.toArray();
-    res.json(results);
+
+    res.json({substitutes: results});
   } catch (err) {
     errorResponse(err, res);
   }

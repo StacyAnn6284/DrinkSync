@@ -1,28 +1,30 @@
-import e from "express";
-import { FormEvent, useState } from "react";
+import React, { useState } from "react";
+import { Substitute } from "../../models/substitute";
 
-interface subSearchFormProps {
-  submit(term: string): void;
+interface SubstituteSearchFormProps {
+  onSearch: (searchTerm: string) => void;
 }
 
-export const subSearchForm = ({ submit }: subSearchFormProps) => {
-  const [term, setTerm] = useState("");
+const SubstituteSearchForm: React.FC<SubstituteSearchFormProps> = ({
+  onSearch,
+}) => {
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    submit(term);
+  const handleSearch = () => {
+    onSearch(searchTerm);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="substitute-search-form">
       <input
         type="text"
-        onChange={(e) => {
-          setTerm(e.target.value);
-        }}
-        value={term}
+        placeholder="Search for missing ingredient"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <button>Search</button>
-    </form>
+      <button onClick={handleSearch}>Search</button>
+    </div>
   );
 };
+
+export default SubstituteSearchForm;
