@@ -7,7 +7,7 @@ const SubstituteService = {
   searchSubstitutes: async (searchTerm: string): Promise<Substitute[]> => {
     try {
       const response = await axios.get<SubstituteResponse>(
-        `${BASE_URL}/api/substitutes?searchTerm=${searchTerm}`
+        `${BASE_URL}/substitutes?searchTerm=${searchTerm}`
       );
       return response.data.substitutes;
     } catch (error) {
