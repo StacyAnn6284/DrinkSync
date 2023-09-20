@@ -1,23 +1,19 @@
 import axios from "axios";
-import { DRINK } from "../models/drink";
+import { DRINK, DRINKresponse, DRINKSingleRespone } from "../models/drink";
 
 export const searchDrinksByName = (term: string) => {
-  return axios.get<DRINK>("https://the-cocktail-db.p.rapidapi.com/search.php", {
-    params: {
-      s: term,
-    },
-    headers: {
-      "X-RapidAPI-Key": 9973533,
-      "X-RapidAPI-Host": "the-cocktail-db.p.rapidapi.com",
-    },
-  });
+  return axios.get<DRINKresponse>(
+    "https://www.thecocktaildb.com/api/json/v2/9973533/search.php",
+    {
+      params: {
+        s: term,
+      },
+    }
+  );
 };
 
 export const getDrinkOfTheDay = () => {
-  return axios.get<DRINK>("https://the-cocktail-db.p.rapidapi.com/random.php", {
-    headers: {
-      "X-RapidAPI-Key": 9973533,
-      "X-RapidAPI-Host": "the-cocktail-db.p.rapidapi.com",
-    },
-  });
+  return axios.get<DRINKSingleRespone>(
+    "https://www.thecocktaildb.com/api/json/v2/9973533/random.php"
+  );
 };

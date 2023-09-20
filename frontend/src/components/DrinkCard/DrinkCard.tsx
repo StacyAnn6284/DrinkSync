@@ -7,7 +7,7 @@ interface DrinkCardProps {
 export const DrinkCard = ({ drink }: DrinkCardProps) => {
   return (
     <div>
-      <h1>{drink.strDrink}</h1>
+      <h1>Results:{drink.strDrink}</h1>
     </div>
   );
 };

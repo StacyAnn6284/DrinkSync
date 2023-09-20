@@ -7,6 +7,7 @@ import {
 } from "../../services/drinkServices";
 import { DrinkList } from "../DrinkList/DrinkList";
 import { SearchForm } from "../SearchForm/SearchForm";
+import "./Main.css";
 
 export const Main = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -27,21 +28,22 @@ export const Main = () => {
   //not sure on the below
   useEffect(() => {
     getDrinkOfTheDay().then((response) => {
-      setRandom(response.data);
+      setRandom(response.data.drinks[0]);
     });
-  }, [random]);
+  }, []);
 
   useEffect(() => {
     if (searchTerm !== "") {
-      searchDrinksByName(searchTerm).then((response: { data: any }) => {
-        setDrinks(response.data);
+      searchDrinksByName(searchTerm).then((response) => {
+        setDrinks(response.data.drinks);
       });
     }
   }, [searchTerm]);
 
   return (
     <main>
-      <h1>{random?.strDrink}</h1>
+      <h1>Drink of the Day:</h1>
+      <h1>{random ? random.strDrink : "coming soon"}</h1>
       <SearchForm
         currentTerm={searchTerm}
         submit={updateSearchTerm}

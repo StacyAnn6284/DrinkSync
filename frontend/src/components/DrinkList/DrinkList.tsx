@@ -8,8 +8,8 @@ interface DrinkListProps {
 export const DrinkList = ({ drinks }: DrinkListProps) => {
   return (
     <div className="DrinkList">
-      {drinks.map((drink) => (
-        <DrinkCard drink={drink} />
+      {drinks?.map((drink) => (
+        <DrinkCard drink={drink}></DrinkCard>
       ))}
     </div>
   );

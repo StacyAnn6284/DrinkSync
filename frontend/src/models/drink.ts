@@ -1,3 +1,11 @@
+export interface DRINKresponse {
+  drinks: DRINK[];
+}
+
+export interface DRINKSingleRespone {
+  drinks: DRINK[];
+}
+
 export interface DRINK {
   idDrink: string;
   strDrink: string;
