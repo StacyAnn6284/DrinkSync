@@ -1,16 +1,25 @@
-import {substitute} from '../../models/substitute';
-import { subResult } from './substituteResult'; 
+import React from "react";
+import SubstituteResult from "./substituteResult";
+import { Substitute } from "../../models/substitute";
 
-interface const subResultListProps {
-    substitutes: substitutes[]
+interface SubstituteResultListProps {
+  substitutes: Substitute[];
 }
 
-export const subResultList = ({substitutes}: subResultListProps) => {
-    return (
-        <section className='subResultList'>
-            {substitutes.map((substitute)=> (
-                <result key = {substitute.id} substitute = {substitute}></result>
-            ))}
-        </section>
-    )
-}
+const SubstituteResultList: React.FC<SubstituteResultListProps> = ({
+  substitutes,
+}) => {
+  return (
+    <div className="substitute-result-list">
+      {substitutes.length > 0 ? (
+        substitutes.map((substitute, index) => (
+          <SubstituteResult key={index} substitute={substitute} />
+        ))
+      ) : (
+        <p>No substitutes found.</p>
+      )}
+    </div>
+  );
+};
+
+export default SubstituteResultList;
