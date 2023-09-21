@@ -10,6 +10,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import MainSubstitute from "./components/mainSubstitute/mainSubstitute";
 
 import Footer from "./components/footer/footer";
+import { Menu } from "./components/Menu/Menu";
 
 function App() {
   // holds the value of the form being displayed
@@ -21,14 +22,9 @@ function App() {
 
   return (
     <div className="App">
-      {/* {currentForm === "login" ? (
-        <Login onFormSwitch={toggleForm} />
-      ) : (
-        <Signup onFormSwitch={toggleForm} />
-      )} */}
-
       <Router>
         <Header />
+        <Menu />
         <Routes>
           <Route
             path="/login"

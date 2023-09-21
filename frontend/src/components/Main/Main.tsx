@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { DRINK } from "../../models/drink";
 import {
   getDrinkOfTheDay,
+  searchDrinksByIngredient,
   searchDrinksByName,
 } from "../../services/drinkServices";
 import { DrinkCard } from "../DrinkCard/DrinkCard";
@@ -15,6 +16,7 @@ export const Main = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [drinks, setDrinks] = useState<DRINK[]>([]);
   const [random, setRandom] = useState<DRINK>();
+  const [randomisVisible, setRandomIsVisible] = useState(true);
 
   const updateSearchTerm = (term: string) => {
     setSearchTerm(term);
@@ -22,11 +24,14 @@ export const Main = () => {
     setSearchParams(searchParams);
   };
 
+  function hideRandom() {
+    setRandomIsVisible(false);
+  }
+
   useEffect(() => {
     updateSearchTerm(searchParams.get("q") || "");
   }, []);
 
-  //not sure on the below
   useEffect(() => {
     getDrinkOfTheDay().then((response) => {
       setRandom(response.data.drinks[0]);
@@ -47,9 +52,15 @@ export const Main = () => {
       <SearchForm
         currentTerm={searchTerm}
         submit={updateSearchTerm}
+        hideRandom={hideRandom}
       ></SearchForm>
-      <h2>Drink of the Day:</h2>
-      {random && <DrinkCard drink={random}></DrinkCard>}
+
+      {random && randomisVisible && (
+        <div>
+          <h2>Drink of the Day</h2>
+          <DrinkCard drink={random} />
+        </div>
+      )}
 
       <DrinkList drinks={drinks}></DrinkList>
     </main>
