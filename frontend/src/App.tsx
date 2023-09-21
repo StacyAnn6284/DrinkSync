@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import { Signup } from "./Componenets/LoginSignup/Signup";
-import { Login } from "./Componenets/LoginSignup/Login";
+import { Signup } from "./components/LoginSignup/Signup";
+import { Login } from "./components/LoginSignup/Login";
 import "./App.css";
 import Header from "./components/Header/Header";
 import { Main } from "./components/Main/Main";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
-
 import MainSubstitute from "./components/mainSubstitute/mainSubstitute";
 
 import Footer from "./components/footer/footer";
-
+import NavBar from "./components/Navigation/NavBar";
 
 function App() {
   // holds the value of the form being displayed
@@ -23,26 +22,23 @@ function App() {
 
   return (
     <div className="App">
-      {currentForm === "login" ? (
-        <Login onFormSwitch={toggleForm} />
-      ) : (
-        <Signup onFormSwitch={toggleForm} />
-      )}
- 
-   
-
       <Router>
+        <NavBar />
+        {currentForm === "login" ? (
+          <Login onFormSwitch={toggleForm} />
+        ) : (
+          <Signup onFormSwitch={toggleForm} />
+        )}
         <Header />
         <Routes>
           <Route path="/" element={<Main />}></Route>
-          <Route path = "/substitutes" element={<MainSubstitute />}></Route>
+          <Route path="/substitutes" element={<MainSubstitute />}></Route>
         </Routes>
-     
-         <Footer></Footer>
+
+        <Footer></Footer>
       </Router>
     </div>
   );
 }
-
 
 export default App;
