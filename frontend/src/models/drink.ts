@@ -14,7 +14,7 @@ export interface DRINK {
   strAlcoholic: string;
   strGlass: string;
   strInstructions: string;
-  strDrinkThumb: ImageBitmap;
+  strDrinkThumb: string | undefined;
   strIngredient1: string | null;
   strIngredient2: string | null;
   strIngredient3: string | null;
@@ -45,5 +45,5 @@ export interface DRINK {
   strMeasure13: string | null;
   strMeasure14: string | null;
   strMeasure15: string | null;
-  strImageSource: ImageBitmap;
+  strImageSource: string | undefined;
 }

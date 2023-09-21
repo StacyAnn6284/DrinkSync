@@ -1,3 +1,12 @@
 .Main {
   background-color: lightgray;
+  font-family: "Montserrat", sans-serif;
+}
+
+h2 {
+  margin: 20px;
+}
+
+h4 {
+  margin: 20px;
 }

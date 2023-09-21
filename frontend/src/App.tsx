@@ -7,11 +7,9 @@ import { Main } from "./components/Main/Main";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
-
 import MainSubstitute from "./components/mainSubstitute/mainSubstitute";
 
 import Footer from "./components/footer/footer";
-
 
 function App() {
   // holds the value of the form being displayed
@@ -23,26 +21,33 @@ function App() {
 
   return (
     <div className="App">
-      {currentForm === "login" ? (
+      {/* {currentForm === "login" ? (
         <Login onFormSwitch={toggleForm} />
       ) : (
         <Signup onFormSwitch={toggleForm} />
-      )}
- 
-   
+      )} */}
 
       <Router>
         <Header />
         <Routes>
+          <Route
+            path="/login"
+            element={
+              currentForm === "login" ? (
+                <Login onFormSwitch={toggleForm} />
+              ) : (
+                <Signup onFormSwitch={toggleForm} />
+              )
+            }
+          ></Route>
           <Route path="/" element={<Main />}></Route>
-          <Route path = "/substitutes" element={<MainSubstitute />}></Route>
+          <Route path="/substitutes" element={<MainSubstitute />}></Route>
         </Routes>
-     
-         <Footer></Footer>
+
+        <Footer></Footer>
       </Router>
     </div>
   );
 }
-
 
 export default App;

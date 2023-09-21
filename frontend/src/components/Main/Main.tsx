@@ -5,6 +5,7 @@ import {
   getDrinkOfTheDay,
   searchDrinksByName,
 } from "../../services/drinkServices";
+import { DrinkCard } from "../DrinkCard/DrinkCard";
 import { DrinkList } from "../DrinkList/DrinkList";
 import { SearchForm } from "../SearchForm/SearchForm";
 import "./Main.css";
@@ -41,13 +42,15 @@ export const Main = () => {
   }, [searchTerm]);
 
   return (
-    <main>
-      <h1>Drink of the Day:</h1>
-      <h1>{random ? random.strDrink : "coming soon"}</h1>
+    <main className="Main">
+      <h2>Search by Drink Name</h2>
       <SearchForm
         currentTerm={searchTerm}
         submit={updateSearchTerm}
       ></SearchForm>
+      <h2>Drink of the Day:</h2>
+      {random && <DrinkCard drink={random}></DrinkCard>}
+
       <DrinkList drinks={drinks}></DrinkList>
     </main>
   );
