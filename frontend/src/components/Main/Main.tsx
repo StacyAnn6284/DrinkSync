@@ -3,8 +3,8 @@ import { useSearchParams } from "react-router-dom";
 import { DRINK } from "../../models/drink";
 import {
   getDrinkOfTheDay,
-  searchDrinksByIngredient,
   searchDrinksByName,
+  searchIngredient,
 } from "../../services/drinkServices";
 import { DrinkCard } from "../DrinkCard/DrinkCard";
 import { DrinkList } from "../DrinkList/DrinkList";
@@ -17,9 +17,13 @@ export const Main = () => {
   const [drinks, setDrinks] = useState<DRINK[]>([]);
   const [random, setRandom] = useState<DRINK>();
   const [randomisVisible, setRandomIsVisible] = useState(true);
+  const [by, setBy] = useState("");
+  const [largeCard, setLargeCard] = useState(true);
 
-  const updateSearchTerm = (term: string) => {
+  const updateSearchTerm = (term: string, by: string) => {
     setSearchTerm(term);
+    setBy(by);
+    searchParams.set("by", by);
     searchParams.set("q", term);
     setSearchParams(searchParams);
   };
@@ -29,7 +33,7 @@ export const Main = () => {
   }
 
   useEffect(() => {
-    updateSearchTerm(searchParams.get("q") || "");
+    updateSearchTerm(searchParams.get("q") || "", searchParams.get("by") || "");
   }, []);
 
   useEffect(() => {
@@ -39,12 +43,18 @@ export const Main = () => {
   }, []);
 
   useEffect(() => {
-    if (searchTerm !== "") {
+    if (searchTerm !== "" && by === "name") {
       searchDrinksByName(searchTerm).then((response) => {
         setDrinks(response.data.drinks);
+        setLargeCard(false);
+      });
+    } else if (searchTerm !== "" && by === "ingredient") {
+      searchIngredient(searchTerm).then((response) => {
+        setDrinks(response.data.drinks);
+        setLargeCard(false);
       });
     }
-  }, [searchTerm]);
+  }, [searchTerm, by]);
 
   return (
     <main className="Main">
@@ -58,11 +68,11 @@ export const Main = () => {
       {random && randomisVisible && (
         <div>
           <h2>Drink of the Day</h2>
-          <DrinkCard drink={random} />
+          <DrinkCard largeCard={largeCard} drink={random} />
         </div>
       )}
 
-      <DrinkList drinks={drinks}></DrinkList>
+      <DrinkList largeCard={largeCard} drinks={drinks}></DrinkList>
     </main>
   );
 };
