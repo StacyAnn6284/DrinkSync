@@ -3,15 +3,20 @@ import { FormEvent, useEffect, useState } from "react";
 interface SearchFormProps {
   submit(term: string): void;
   currentTerm: string;
+  hideRandom(): void;
 }
 
-export const SearchForm = ({ submit, currentTerm }: SearchFormProps) => {
+export const SearchForm = ({
+  submit,
+  currentTerm,
+  hideRandom,
+}: SearchFormProps) => {
   const [term, setTerm] = useState(currentTerm);
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-
     submit(term);
+    hideRandom();
   };
 
   useEffect(() => {

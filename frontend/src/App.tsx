@@ -10,7 +10,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import MainSubstitute from "./components/mainSubstitute/mainSubstitute";
 
 import Footer from "./components/footer/footer";
-import NavBar from "./components/Navigation/NavBar";
+import { Menu } from "./components/Menu/Menu";
 
 function App() {
   // holds the value of the form being displayed
@@ -23,14 +23,19 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar />
-        {currentForm === "login" ? (
-          <Login onFormSwitch={toggleForm} />
-        ) : (
-          <Signup onFormSwitch={toggleForm} />
-        )}
         <Header />
+        <Menu />
         <Routes>
+          <Route
+            path="/login"
+            element={
+              currentForm === "login" ? (
+                <Login onFormSwitch={toggleForm} />
+              ) : (
+                <Signup onFormSwitch={toggleForm} />
+              )
+            }
+          ></Route>
           <Route path="/" element={<Main />}></Route>
           <Route path="/substitutes" element={<MainSubstitute />}></Route>
         </Routes>
