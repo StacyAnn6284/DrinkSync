@@ -9,6 +9,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import MainSubstitute from "./components/mainSubstitute/mainSubstitute";
 import Footer from "./components/footer/footer";
 import SubstituteSubmission from "./components/SubstituteSubmission/substituteSubmission";
+import { Menu } from "./components/Menu/Menu";
+
 
 function App() {
   const [currentForm, setCurrentForm] = useState("login");
@@ -19,21 +21,28 @@ function App() {
 
   return (
     <div className="App">
-      {currentForm === "login" ? (
-        <Login onFormSwitch={toggleForm} />
-      ) : (
-        <Signup onFormSwitch={toggleForm} />
-      )}
-
       <Router>
         <Header />
+        <Menu />
         <Routes>
+          <Route
+            path="/login"
+            element={
+              currentForm === "login" ? (
+                <Login onFormSwitch={toggleForm} />
+              ) : (
+                <Signup onFormSwitch={toggleForm} />
+              )
+            }
+          ></Route>
           <Route path="/" element={<Main />}></Route>
           <Route path="/substitutes" element={<MainSubstitute />}></Route>
+
           <Route
             path="/substituteSubmission"
             element={<SubstituteSubmission />}
           ></Route>
+
         </Routes>
 
         <Footer></Footer>

@@ -1,5 +1,6 @@
 import "./Header.css";
 import logo from "../Header/images/syncLogo.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -12,9 +13,10 @@ function Header() {
         <h3>Saving on Cocktails, Not on Taste</h3>
       </div>
       <div></div>
-      <p className="signin">Sign In</p>
+      <p className="signin">
+        <Link to="/login">Sign In</Link>
+      </p>
     </div>
   );
 }
-
 export default Header;
