@@ -1,4 +1,10 @@
 
+import "../../components/LoginSignup/Login.css";
+import React, { useState } from "react";
+import { auth } from "../../firebase";
+import syncLogo from "../../components/Assets/syncLogo.png";
+
+
 import "../LoginSignup/Login.css";
 
 import "./Login.css";
@@ -7,6 +13,7 @@ import React, { useState } from "react";
 import syncLogo from "../Assets/syncLogo.png";
 import { Auth } from "firebase/auth";
 import { auth } from "../../firebase";
+
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 interface LoginProps {

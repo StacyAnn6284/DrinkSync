@@ -37,6 +37,9 @@ export const Main = () => {
   }, []);
 
   useEffect(() => {
+
+    if (searchTerm !== "") {
+
     getDrinkOfTheDay().then((response) => {
       setRandom(response.data.drinks[0]);
     });
@@ -44,6 +47,7 @@ export const Main = () => {
 
   useEffect(() => {
     if (searchTerm !== "" && by === "name") {
+
       searchDrinksByName(searchTerm).then((response) => {
         setDrinks(response.data.drinks);
         setLargeCard(false);
@@ -55,6 +59,41 @@ export const Main = () => {
       });
     }
   }, [searchTerm, by]);
+
+  useEffect(() => {
+    const storedDrink = localStorage.getItem("drinkOfTheDay");
+    console.log(storedDrink);
+    if (storedDrink) {
+      setRandom(JSON.parse(storedDrink));
+    } else {
+      getDrinkOfTheDay().then((response) => {
+        const drinkOfTheDay = response.data.drinks[0];
+        setRandom(drinkOfTheDay);
+
+        // Store it in local storage
+        localStorage.setItem("drinkOfTheDay", JSON.stringify(drinkOfTheDay));
+      });
+    }
+  }, []);
+
+  function clearLocalStorageAtMidnight() {
+    const now = new Date();
+    const midnight = new Date(now);
+    //if you want to test if it will change after 24hrs
+    //change the time (h/m/s/ms)
+    midnight.setHours(24, 0, 0, 0);
+
+    // Calculate the time remaining until midnight
+    const timeUntilMidnight = midnight.getTime() - now.getTime();
+
+    // Set a timer to clear local storage at midnight
+    setTimeout(() => {
+      localStorage.removeItem("drinkOfTheDay");
+    }, timeUntilMidnight);
+  }
+
+  // Call the function to start the timer
+  clearLocalStorageAtMidnight();
 
   return (
     <main className="Main">
