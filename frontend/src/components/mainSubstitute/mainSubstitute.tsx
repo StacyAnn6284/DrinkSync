@@ -32,7 +32,7 @@ const MainSubstitute: React.FC = () => {
     <div className="MainSubstitute">
       <h1>Substitute Finder</h1>
       <SubstituteSearchForm onSearch={handleSearch} />
-      <SubstituteResultList substitutes={substitutes} />
+      <SubstituteResultList substitutes={substitutes} searchTerm={searchTerm} />
     </div>
   );
 };

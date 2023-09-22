@@ -1,20 +1,16 @@
 import React, { useState } from "react";
-import { Signup } from "./Componenets/LoginSignup/Signup";
-import { Login } from "./Componenets/LoginSignup/Login";
+import { Signup } from "./components/LoginSignup/Signup";
+import { Login } from "./components/LoginSignup/Login";
 import "./App.css";
 import Header from "./components/Header/Header";
 import { Main } from "./components/Main/Main";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-
-
 import MainSubstitute from "./components/mainSubstitute/mainSubstitute";
-
 import Footer from "./components/footer/footer";
-
+import SubstituteSubmission from "./components/SubstituteSubmission/substituteSubmission";
 
 function App() {
-  // holds the value of the form being displayed
   const [currentForm, setCurrentForm] = useState("login");
 
   const toggleForm = (formName: React.SetStateAction<string>) => {
@@ -28,21 +24,22 @@ function App() {
       ) : (
         <Signup onFormSwitch={toggleForm} />
       )}
- 
-   
 
       <Router>
         <Header />
         <Routes>
           <Route path="/" element={<Main />}></Route>
-          <Route path = "/substitutes" element={<MainSubstitute />}></Route>
+          <Route path="/substitutes" element={<MainSubstitute />}></Route>
+          <Route
+            path="/substituteSubmission"
+            element={<SubstituteSubmission />}
+          ></Route>
         </Routes>
-     
-         <Footer></Footer>
+
+        <Footer></Footer>
       </Router>
     </div>
   );
 }
-
 
 export default App;
