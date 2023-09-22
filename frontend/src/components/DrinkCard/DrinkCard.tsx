@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { DRINK } from "../../models/drink";
 import "./DrinkCard.css";
+import { Link } from "react-router-dom";
 
 interface DrinkCardProps {
   drink: DRINK;
+  largeCard: boolean;
 }
 
-export const DrinkCard = ({ drink }: DrinkCardProps) => {
-  const [expanded, setExpanded] = useState(false);
+export const DrinkCard = ({ drink, largeCard }: DrinkCardProps) => {
+  const [expanded, setExpanded] = useState(largeCard);
   const handleExpand = () => {
     setExpanded(!expanded);
   };
@@ -15,6 +17,7 @@ export const DrinkCard = ({ drink }: DrinkCardProps) => {
   return (
     <li className={expanded ? "bigger" : "smaller"} onClick={handleExpand}>
       <h3>{drink.strDrink}</h3>
+
       <img src={drink.strDrinkThumb}></img>
       {expanded && (
         <div>
@@ -112,6 +115,10 @@ export const DrinkCard = ({ drink }: DrinkCardProps) => {
               </li>
             )}
           </ul>
+          <Link to="/substitutes">
+            {" "}
+            <p>Missing an ingredient? Find a substitution</p>
+          </Link>
           <p>{drink.strInstructions}</p>
         </div>
       )}
