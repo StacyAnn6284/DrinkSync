@@ -1,4 +1,8 @@
+
 import "../LoginSignup/Login.css";
+
+import "./Login.css";
+
 import React, { useState } from "react";
 import syncLogo from "../Assets/syncLogo.png";
 import { Auth } from "firebase/auth";
