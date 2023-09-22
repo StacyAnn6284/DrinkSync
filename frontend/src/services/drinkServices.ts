@@ -12,6 +12,17 @@ export const searchDrinksByName = (term: string) => {
   );
 };
 
+export const searchIngredient = (term: string) => {
+  return axios.get<DRINKresponse>(
+    "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php",
+    {
+      params: {
+        i: term,
+      },
+    }
+  );
+};
+
 export const searchDrinksByIngredient = (term: string[]) => {
   return axios.get<DRINKresponse>(
     "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php",

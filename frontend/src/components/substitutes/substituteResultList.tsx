@@ -4,19 +4,30 @@ import { Substitute } from "../../models/substitute";
 
 interface SubstituteResultListProps {
   substitutes: Substitute[];
+  searchTerm: string;
 }
 
 const SubstituteResultList: React.FC<SubstituteResultListProps> = ({
   substitutes,
+  searchTerm,
 }) => {
+  // Filter the substitutes based on the search term
+  const filteredSubstitutes = substitutes.filter((substitute) =>
+    substitute.missingIngredient
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="substitute-result-list">
-      {substitutes.length > 0 ? (
-        substitutes.map((substitute, index) => (
-          <SubstituteResult key={index} substitute={substitute} />
-        ))
+      {filteredSubstitutes.length === 0 ? (
+        <p>No substitutes found for '{searchTerm}'</p>
       ) : (
-        <p>No substitutes found.</p>
+        <ul>
+          {filteredSubstitutes.map((substitute, index) => (
+            <SubstituteResult key={index} substitute={substitute} />
+          ))}
+        </ul>
       )}
     </div>
   );

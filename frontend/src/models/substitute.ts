@@ -1,5 +1,5 @@
 export interface Substitute {
-  _id: string; // MongoDB document ID
+  _id?: string; // MongoDB document ID
   missingIngredient: string;
   solution: string;
 }
