@@ -14,6 +14,14 @@ const SubstituteService = {
       throw error;
     }
   },
+
+  createSubstitute: async (substitute: Substitute): Promise<void> => {
+    try {
+      await axios.post(`${BASE_URL}/substitutes`, substitute);
+    } catch (error) {
+      throw error;
+    }
+  },
 };
 
 export default SubstituteService;
