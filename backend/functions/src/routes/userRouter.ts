@@ -1,6 +1,7 @@
 import express from "express";
 import { getClient } from "../db";
-import user from "../models/user";
+// import user from "../models/user";
+// import user from '../Models/user'
 
 const userRouter = express.Router();
 

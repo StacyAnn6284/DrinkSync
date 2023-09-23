@@ -1,8 +1,8 @@
 import * as functions from "firebase-functions";
 import express from "express";
 import cors from "cors";
-import userRouter from "../Routers/userRouter";
-import substituteRouter from "../Routers/substituteRouter";
+import userRouter from "../routes/userRouter";
+import substituteRouter from "../routes/substituteRouter";
 const app = express();
 app.use(cors());
 app.use(express.json());
