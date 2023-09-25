@@ -1,42 +1,60 @@
-
 import "../../components/LoginSignup/Login.css";
-import React, { useState } from "react";
-import { auth } from "../../firebase";
-import syncLogo from "../../components/Assets/syncLogo.png";
-
-
+import React, { useEffect, useState } from "react";
+import { auth, googlePRovider } from "../../firebase";
 import "../LoginSignup/Login.css";
-
 import "./Login.css";
-
-import React, { useState } from "react";
 import syncLogo from "../Assets/syncLogo.png";
-import { Auth } from "firebase/auth";
-import { auth } from "../../firebase";
-
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  User as FirebaseUser,
+} from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { User } from "firebase/auth";
 
 interface LoginProps {
   onFormSwitch: (formName: string) => void;
+  history: any;
 }
 
 export const Login: React.FC<LoginProps> = (props) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [user, setUser] = useState<FirebaseUser | null>(null);
+  const navigate = useNavigate();
+
+  const signInWithGoogle = async () => {
+    try {
+      const userCredential = await signInWithPopup(auth, googlePRovider);
+      const user = userCredential.user;
+      setUser(user);
+      navigate("/");
+    } catch (err) {
+      console.error("Error signing in with Google:", err);
+    }
+  };
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      setUser(null);
+    } catch (err) {
+      console.error("Error signing in with Google:", err);
+    }
+  };
 
   const handleSubmit = async () => {
-    // e.preventDefault();
-    // console.log("Email", email);
-    // console.log("Password", pass);
     await signInWithEmailAndPassword(auth, email, pass)
       .then((userCredential) => {
-        // The authentication was successful
         const user = userCredential.user;
+        setUser(user);
         console.log("Authentication successful:", user);
 
         //Clear form
         setEmail("");
         setPass("");
+        navigate("/");
       })
       .catch((error) => {
         // Handle any authentication errors
@@ -47,7 +65,6 @@ export const Login: React.FC<LoginProps> = (props) => {
   return (
     <div className="formCantaner">
       <img className="sync" src={syncLogo} alt="logo" />
-
       <form className="loginForm" onSubmit={handleSubmit}>
         <label className="loginLabel" htmlFor="email">
           Email
@@ -74,17 +91,37 @@ export const Login: React.FC<LoginProps> = (props) => {
           name="password"
         />
       </form>
+      {/* {user ? (
+        // Display the user's name if they are logged in
+        <>
+          <p>Welcome, {user.displayName}!</p>
+          <button onClick={logout}>Log Out</button>
+        </>
+      ) : ( */}
 
-      <button className="formButton" onClick={handleSubmit}>
-        Login
-      </button>
+      <>
+        <Link to={"/"}>
+          <button className="formButton" onClick={handleSubmit}>
+            Login
+          </button>
+        </Link>
+        <Link to={""}>
+          <button onClick={signInWithGoogle}>Sign in with Google</button>
+        </Link>
 
-      <button
-        className="toggleButton"
-        onClick={() => props.onFormSwitch("signup")}
-      >
-        Do you have an account? Rigister here.
-      </button>
+        <button onClick={logout}>Log Out</button>
+
+        <button
+          className="toggleButton"
+          onClick={() => props.onFormSwitch("signup")}
+        >
+          Do you have an account? Rigister here.
+        </button>
+      </>
+      {/* )} */}
     </div>
   );
 };
+// function setCurrentUser() {
+//   throw new Error("Function not implemented.");
+// }

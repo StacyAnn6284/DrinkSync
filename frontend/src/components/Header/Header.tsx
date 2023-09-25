@@ -14,7 +14,9 @@ function Header() {
       </div>
       <div></div>
       <p className="signin">
-        <Link to="/login">Sign In</Link>
+        <Link to="/login" rel="noopener noreferrer">
+          Sign In
+        </Link>
       </p>
     </div>
   );
