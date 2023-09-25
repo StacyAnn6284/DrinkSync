@@ -1,12 +1,10 @@
-
 import "../LoginSignup/Signup.css";
-
 import "./Signup.css";
-
 import React, { useState } from "react";
 import syncLogo from "../Assets/syncLogo.png";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 interface SignupProps {
   onFormSwitch: (formName: string) => void;
@@ -16,6 +14,7 @@ export const Signup: React.FC<SignupProps> = (props) => {
   const [email, setEmail] = useState("");
   const [pass, passPass] = useState("");
   const [name, passName] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     // e.preventDefault();
@@ -27,11 +26,31 @@ export const Signup: React.FC<SignupProps> = (props) => {
     //     console.log(error);
     //   });
     // console.log(email);
-
+    navigate("/");
     // Clear the form
     setEmail("");
     passPass("");
     passName("");
+  };
+
+  const signInWithGoogle = async () => {
+    try {
+      // You can customize the email and password for Google Sign-Up
+      // const googleEmail = "user@example.com";
+      // const googlePassword = "password";
+
+      const randomString = Math.random().toString(36).substring(7);
+      const googleEmail = `user+${randomString}@example.com`;
+      const googlePassword = "password";
+
+      // Create a user with the predefined email and password
+      await createUserWithEmailAndPassword(auth, googleEmail, googlePassword);
+
+      // User signed up with Google successfully
+      navigate("/");
+    } catch (error) {
+      console.error("Error signing up with Google:", error);
+    }
   };
 
   return (
@@ -80,6 +99,10 @@ export const Signup: React.FC<SignupProps> = (props) => {
         Sign Up
       </button>
 
+      <button className="formButton" onClick={signInWithGoogle}>
+        Sign Up with Google
+      </button>
+
       <button
         className="toggleButton"
         onClick={() => props.onFormSwitch("login")}
@@ -97,6 +120,3 @@ function setPass(arg0: string) {
 function setName(arg0: string) {
   throw new Error("Function not implemented.");
 }
-// function setPass(arg0: string) {
-//   throw new Error("Function not implemented.");
-// }

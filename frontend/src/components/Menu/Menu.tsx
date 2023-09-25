@@ -4,9 +4,9 @@ export const Menu = () => {
   return (
     <div className="Menu">
       <ul>
-        <li>
+        {/* <li>
           <Link to="/">Home</Link>
-        </li>
+        </li> */}
         <li>
           <Link to="/substitutes">Find a Substitution</Link>
         </li>

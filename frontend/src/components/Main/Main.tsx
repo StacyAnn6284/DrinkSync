@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { DRINK } from "../../models/drink";
+import { DRINK } from "../../Models/drink";
 import {
   getDrinkOfTheDay,
   searchDrinksByName,
@@ -10,6 +10,10 @@ import { DrinkCard } from "../DrinkCard/DrinkCard";
 import { DrinkList } from "../DrinkList/DrinkList";
 import { SearchForm } from "../SearchForm/SearchForm";
 import "./Main.css";
+import Header from "../Header/Header";
+import { Menu } from "../Menu/Menu";
+import NavBar from "../Navigation/NavBar";
+import React from "react";
 
 export const Main = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -95,7 +99,10 @@ export const Main = () => {
 
   return (
     <main className="Main">
+      <NavBar />
+      <Header />
       <h2>Search by Drink Name</h2>
+      <Menu />
       <SearchForm
         currentTerm={searchTerm}
         submit={updateSearchTerm}

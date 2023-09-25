@@ -4,16 +4,21 @@ import { Login } from "./components/LoginSignup/Login";
 import "./App.css";
 import Header from "./components/Header/Header";
 import { Main } from "./components/Main/Main";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import MainSubstitute from "./components/mainSubstitute/mainSubstitute";
 import Footer from "./components/footer/footer";
 import SubstituteSubmission from "./components/SubstituteSubmission/substituteSubmission";
 import { Menu } from "./components/Menu/Menu";
-
+import NavBar from "./components/Navigation/NavBar";
+import About from "./components/Pages/About";
 
 function App() {
+  // const location = useLocation();
+  // const isLoginPage = location.pathname === "/login";
+
   const [currentForm, setCurrentForm] = useState("login");
+  const [user, setUser] = useState(null);
 
   const toggleForm = (formName: React.SetStateAction<string>) => {
     setCurrentForm(formName);
@@ -22,14 +27,12 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
-        <Menu />
         <Routes>
           <Route
             path="/login"
             element={
               currentForm === "login" ? (
-                <Login onFormSwitch={toggleForm} />
+                <Login onFormSwitch={toggleForm} history={undefined} />
               ) : (
                 <Signup onFormSwitch={toggleForm} />
               )
@@ -37,12 +40,11 @@ function App() {
           ></Route>
           <Route path="/" element={<Main />}></Route>
           <Route path="/substitutes" element={<MainSubstitute />}></Route>
-
           <Route
             path="/substituteSubmission"
             element={<SubstituteSubmission />}
           ></Route>
-
+          <Route path="/about" element={<About />}></Route>
         </Routes>
 
         <Footer></Footer>

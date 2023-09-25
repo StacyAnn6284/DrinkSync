@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Substitute } from "../../models/substitute";
+import { Substitute } from "../../Models/substitute";
 import SubstituteService from "../../services/substituteService";
 import SubstituteSearchForm from "../substitutes/substituteSearchForm";
 import SubstituteResultList from "../substitutes/substituteResultList";
