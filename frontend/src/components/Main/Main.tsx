@@ -37,17 +37,15 @@ export const Main = () => {
   }, []);
 
   useEffect(() => {
-
     if (searchTerm !== "") {
-
-    getDrinkOfTheDay().then((response) => {
-      setRandom(response.data.drinks[0]);
-    });
+      getDrinkOfTheDay().then((response) => {
+        setRandom(response.data.drinks[0]);
+      });
+    }
   }, []);
 
   useEffect(() => {
     if (searchTerm !== "" && by === "name") {
-
       searchDrinksByName(searchTerm).then((response) => {
         setDrinks(response.data.drinks);
         setLargeCard(false);
