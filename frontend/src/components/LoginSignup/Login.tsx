@@ -1,19 +1,24 @@
 
-import "../../components/LoginSignup/Login.css";
-import React, { useState } from "react";
-import { auth } from "../../firebase";
 
 
 
-import "../LoginSignup/Login.css";
+
+
+
+
+
+
+
+
+
 
 import "./Login.css";
-
+import { useState } from "react";
 import syncLogo from "../Assets/syncLogo.png";
 import { Auth } from "firebase/auth";
-
-
+import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import React from "react";
 
 interface LoginProps {
   onFormSwitch: (formName: string) => void;
