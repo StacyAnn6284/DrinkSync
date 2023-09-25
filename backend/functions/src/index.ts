@@ -9,4 +9,3 @@ app.use(express.json());
 app.use("/", substituteRouter);
 app.use("/", userRouter);
 export const api = functions.https.onRequest(app);
-

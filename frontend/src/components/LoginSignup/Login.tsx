@@ -1,3 +1,4 @@
+
 import "../../components/LoginSignup/Login.css";
 import React, { useEffect, useState } from "react";
 import { auth, googlePRovider } from "../../firebase";
@@ -12,6 +13,15 @@ import {
 } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { User } from "firebase/auth";
+
+
+
+
+
+
+
+
+
 
 interface LoginProps {
   onFormSwitch: (formName: string) => void;

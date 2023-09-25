@@ -23,5 +23,4 @@ const SubstituteService = {
     }
   },
 };
-
 export default SubstituteService;
