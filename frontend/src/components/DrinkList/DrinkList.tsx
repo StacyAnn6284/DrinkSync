@@ -1,4 +1,4 @@
-import { DRINK } from "../../Models/drink";
+import { DRINK } from "../../models/drink";
 import { DrinkCard } from "../DrinkCard/DrinkCard";
 
 interface DrinkListProps {

@@ -1,11 +1,14 @@
 import React from "react";
-import { Substitute } from "../../Models/substitute";
+import { Substitute } from "../../models/substitute";
+import "./substitutes.css";
 
 const SubstituteResult = ({ substitute }: { substitute: Substitute }) => {
   return (
     <div className="substitute-result">
-      <h2>Missing Ingredient: {substitute.missingIngredient}</h2>
-      <p>Solution: {substitute.solution}</p>
+      <h2 className="missing-ingrdnt-name">
+        Missing Ingredient: {substitute.missingIngredient}
+      </h2>
+      <p className="solution-para">Solution: {substitute.solution}</p>
     </div>
   );
 };

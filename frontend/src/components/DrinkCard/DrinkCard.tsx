@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DRINK } from "../../Models/drink";
+import { DRINK } from "../../models/drink";
 import "./DrinkCard.css";
 import { Link } from "react-router-dom";
 
