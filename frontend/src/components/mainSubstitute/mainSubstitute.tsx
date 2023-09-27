@@ -3,6 +3,8 @@ import { Substitute } from "../../models/substitute";
 import SubstituteService from "../../services/substituteService";
 import SubstituteSearchForm from "../substitutes/substituteSearchForm";
 import SubstituteResultList from "../substitutes/substituteResultList";
+import syncLogo from "../Assets/syncLogo.png";
+import "../substitutes/substitutes.css";
 
 const MainSubstitute: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -30,7 +32,8 @@ const MainSubstitute: React.FC = () => {
 
   return (
     <div className="MainSubstitute">
-      <h1>Substitute Finder</h1>
+      <h1 className="subFinderHeader">Substitute Finder</h1>
+      <img className="sync-subimg" src={syncLogo} alt="logo" />
       <SubstituteSearchForm onSearch={handleSearch} />
       <SubstituteResultList substitutes={substitutes} searchTerm={searchTerm} />
     </div>

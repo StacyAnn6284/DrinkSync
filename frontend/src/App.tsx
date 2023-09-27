@@ -39,10 +39,14 @@ function App() {
             }
           ></Route>
           <Route path="/" element={<Main />}></Route>
-          <Route path="/substitutes" element={<MainSubstitute />}></Route>
           <Route
-            path="/substituteSubmission"
-            element={<SubstituteSubmission />}
+            path="/substitutes"
+            element={
+              <div className="substitute-page">
+                <MainSubstitute />
+                <SubstituteSubmission />
+              </div>
+            }
           ></Route>
           <Route path="/about" element={<About />}></Route>
         </Routes>
