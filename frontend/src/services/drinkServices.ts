@@ -39,3 +39,12 @@ export const getDrinkOfTheDay = () => {
     "https://www.thecocktaildb.com/api/json/v2/9973533/random.php"
   );
 };
+
+export const getDrinkbyID = (id: string) => {
+  return axios.get<DRINKSingleRespone>(
+    "https://www.thecocktaildb.com/api/json/v1/1/lookup.php",
+    {
+      params: { i: id },
+    }
+  );
+};

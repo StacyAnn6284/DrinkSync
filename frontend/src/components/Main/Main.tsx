@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { DRINK } from "../../models/drink";
 import {
   getDrinkOfTheDay,
   searchDrinksByName,
@@ -14,6 +13,7 @@ import Header from "../Header/Header";
 import { Menu } from "../Menu/Menu";
 import NavBar from "../Navigation/NavBar";
 import React from "react";
+import { DRINK } from "../../models/drink";
 
 export const Main = () => {
   const [searchParams, setSearchParams] = useSearchParams();

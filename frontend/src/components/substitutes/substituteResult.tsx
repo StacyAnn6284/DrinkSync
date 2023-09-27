@@ -2,6 +2,7 @@ import React from "react";
 import { Substitute } from "../../models/substitute";
 import "./substitutes.css";
 
+
 const SubstituteResult = ({ substitute }: { substitute: Substitute }) => {
   return (
     <div className="substitute-result">
