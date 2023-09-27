@@ -1,6 +1,6 @@
 import React from "react";
 import SubstituteResult from "./substituteResult";
-import { Substitute } from "../../Models/substitute";
+import { Substitute } from "../../models/substitute";
 
 interface SubstituteResultListProps {
   substitutes: Substitute[];

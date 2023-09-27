@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Substitute } from "../../Models/substitute";
+import { Substitute } from "../../models/substitute";
 
 interface SubstituteSearchFormProps {
   onSearch: (searchTerm: string) => void;

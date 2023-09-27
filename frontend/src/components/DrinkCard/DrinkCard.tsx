@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { DRINK } from "../../Models/drink";
+import { useEffect, useState } from "react";
+import { DRINK } from "../../models/drink";
 import "./DrinkCard.css";
 import { Link } from "react-router-dom";
+import { getDrinkbyID } from "../../services/drinkServices";
 
 interface DrinkCardProps {
   drink: DRINK;
@@ -14,104 +15,112 @@ export const DrinkCard = ({ drink, largeCard }: DrinkCardProps) => {
     setExpanded(!expanded);
   };
 
+  const [drinkbyID, setDrinkbyID] = useState(drink);
+
+  useEffect(() => {
+    getDrinkbyID(drink.idDrink).then((response) => {
+      setDrinkbyID(response.data.drinks[0]);
+    });
+  }, []);
+
   return (
     <li className={expanded ? "bigger" : "smaller"} onClick={handleExpand}>
-      <h3>{drink.strDrink}</h3>
+      <h3>{drinkbyID.strDrink}</h3>
 
-      <img src={drink.strDrinkThumb}></img>
+      <img src={drinkbyID.strDrinkThumb}></img>
       {expanded && (
         <div>
           <ul>
-            {drink.strIngredient1 != null && (
+            {drinkbyID.strIngredient1 != null && (
               <li>
-                {drink.strMeasure1} {drink.strIngredient1}
+                {drinkbyID.strMeasure1} {drinkbyID.strIngredient1}
               </li>
             )}
-            {drink.strIngredient2 != null && (
+            {drinkbyID.strIngredient2 != null && (
               <li>
                 {" "}
-                {drink.strMeasure2} {drink.strIngredient2}
+                {drinkbyID.strMeasure2} {drinkbyID.strIngredient2}
               </li>
             )}
-            {drink.strIngredient3 != null && (
+            {drinkbyID.strIngredient3 != null && (
               <li>
                 {" "}
-                {drink.strMeasure3}
-                {drink.strIngredient3}
+                {drinkbyID.strMeasure3}
+                {drinkbyID.strIngredient3}
               </li>
             )}
-            {drink.strIngredient4 != null && (
+            {drinkbyID.strIngredient4 != null && (
               <li>
                 {" "}
-                {drink.strMeasure4}
-                {drink.strIngredient4}
+                {drinkbyID.strMeasure4}
+                {drinkbyID.strIngredient4}
               </li>
             )}
-            {drink.strIngredient5 != null && (
+            {drinkbyID.strIngredient5 != null && (
               <li>
                 {" "}
-                {drink.strMeasure5}
-                {drink.strIngredient5}
+                {drinkbyID.strMeasure5}
+                {drinkbyID.strIngredient5}
               </li>
             )}
-            {drink.strIngredient6 != null && (
+            {drinkbyID.strIngredient6 != null && (
               <li>
-                {drink.strMeasure6}
-                {drink.strIngredient6}
+                {drinkbyID.strMeasure6}
+                {drinkbyID.strIngredient6}
               </li>
             )}
-            {drink.strIngredient7 != null && (
+            {drinkbyID.strIngredient7 != null && (
               <li>
-                {drink.strMeasure7}
-                {drink.strIngredient7}
+                {drinkbyID.strMeasure7}
+                {drinkbyID.strIngredient7}
               </li>
             )}
-            {drink.strIngredient8 != null && (
+            {drinkbyID.strIngredient8 != null && (
               <li>
-                {drink.strMeasure8}
-                {drink.strIngredient8}
+                {drinkbyID.strMeasure8}
+                {drinkbyID.strIngredient8}
               </li>
             )}
-            {drink.strIngredient9 != null && (
+            {drinkbyID.strIngredient9 != null && (
               <li>
-                {drink.strMeasure9}
-                {drink.strIngredient9}
+                {drinkbyID.strMeasure9}
+                {drinkbyID.strIngredient9}
               </li>
             )}
-            {drink.strIngredient10 != null && (
+            {drinkbyID.strIngredient10 != null && (
               <li>
-                {drink.strMeasure10}
-                {drink.strIngredient10}
+                {drinkbyID.strMeasure10}
+                {drinkbyID.strIngredient10}
               </li>
             )}
-            {drink.strIngredient11 != null && (
+            {drinkbyID.strIngredient11 != null && (
               <li>
-                {drink.strMeasure11}
-                {drink.strIngredient11}
+                {drinkbyID.strMeasure11}
+                {drinkbyID.strIngredient11}
               </li>
             )}
-            {drink.strIngredient12 != null && (
+            {drinkbyID.strIngredient12 != null && (
               <li>
-                {drink.strMeasure12}
-                {drink.strIngredient12}
+                {drinkbyID.strMeasure12}
+                {drinkbyID.strIngredient12}
               </li>
             )}
-            {drink.strIngredient13 != null && (
+            {drinkbyID.strIngredient13 != null && (
               <li>
-                {drink.strMeasure13}
-                {drink.strIngredient13}
+                {drinkbyID.strMeasure13}
+                {drinkbyID.strIngredient13}
               </li>
             )}
-            {drink.strIngredient14 != null && (
+            {drinkbyID.strIngredient14 != null && (
               <li>
-                {drink.strMeasure14}
-                {drink.strIngredient14}
+                {drinkbyID.strMeasure14}
+                {drinkbyID.strIngredient14}
               </li>
             )}
-            {drink.strIngredient15 != null && (
+            {drinkbyID.strIngredient15 != null && (
               <li>
-                {drink.strMeasure15}
-                {drink.strIngredient15}
+                {drinkbyID.strMeasure15}
+                {drinkbyID.strIngredient15}
               </li>
             )}
           </ul>
@@ -119,7 +128,7 @@ export const DrinkCard = ({ drink, largeCard }: DrinkCardProps) => {
             {" "}
             <p>Missing an ingredient? Find a substitution</p>
           </Link>
-          <p>{drink.strInstructions}</p>
+          <p>{drinkbyID.strInstructions}</p>
         </div>
       )}
     </li>
