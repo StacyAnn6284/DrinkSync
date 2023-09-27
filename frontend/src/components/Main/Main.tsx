@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { DRINK } from "../../Models/drink";
+import { DRINK } from "../../models/drink";
 import {
   getDrinkOfTheDay,
   searchDrinksByName,

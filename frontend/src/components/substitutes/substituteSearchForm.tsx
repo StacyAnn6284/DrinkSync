@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Substitute } from "../../Models/substitute";
+import { Substitute } from "../../models/substitute";
+import "./substitutes.css";
 
 interface SubstituteSearchFormProps {
   onSearch: (searchTerm: string) => void;
@@ -17,12 +18,15 @@ const SubstituteSearchForm: React.FC<SubstituteSearchFormProps> = ({
   return (
     <div className="substitute-search-form">
       <input
+        className="sub-form-input"
         type="text"
-        placeholder="Search for missing ingredient"
+        placeholder="your missing ingredient"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <button onClick={handleSearch}>Search</button>
+      <button className="sub-search-button" onClick={handleSearch}>
+        Search
+      </button>
     </div>
   );
 };
