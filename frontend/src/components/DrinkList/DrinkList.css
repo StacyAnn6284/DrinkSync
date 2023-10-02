@@ -1,0 +1,24 @@
+.DrinkList {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+}
+
+/* This creates two columns in desktop */
+/* this is for desktop view */
+@media screen and (min-width: 780px) {
+  .DrinkList {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .Column1 {
+    width: 45%;
+    max-width: 475px;
+  }
+
+  .Column2 {
+    width: 45%;
+    max-width: 475px;
+  }
+}

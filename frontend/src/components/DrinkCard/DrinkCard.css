@@ -1,16 +1,112 @@
 .smaller {
   list-style: none;
+  margin-top: 50px;
+  margin-right: 30px;
+}
+
+.smaller .drinkHeading {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  margin: 10px;
 }
 
 .smaller h3 {
-  font-size: 20px;
+  font-size: 15px;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
-  font-style: normal;
-  text-align: left;
+  text-align: right;
+  text-shadow: none;
+  font-style: italic;
 }
 
 .bigger {
   list-style: none;
-  border: 2px solid black;
+  text-align: center;
+  border-bottom: #684e17 solid 2px;
+  padding-bottom: 5px;
+  margin-bottom: 2px;
+  margin-right: 30px;
+}
+.drinkHeading img {
+  margin: 5px;
+}
+
+.bigger h3 {
+  text-shadow: none;
+  font-style: italic;
+}
+
+.bigger ul {
+  text-align: left;
+}
+
+.bigger img {
+  width: 250px;
+  height: 250px;
+  margin: auto;
+}
+
+/* this is for tablet view and bigger*/
+@media screen and (min-width: 480px) {
+  .smaller .drinkHeading {
+    margin: 20px;
+  }
+
+  .smaller h3 {
+    font-size: 30px;
+  }
+
+  .smaller img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .bigger {
+    padding-bottom: 10px;
+    margin-bottom: 4px;
+  }
+
+  .bigger h3 {
+    font-size: 30px;
+  }
+
+  .bigger img {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+  }
+
+  .bigger p {
+    font-size: 20px;
+  }
+
+  .bigger ul {
+    font-size: 20px;
+  }
+}
+
+/* this is for desktop view */
+@media screen and (min-width: 780px) {
+  .smaller .drinkHeading {
+    width: 75%;
+  }
+
+  .drinkHeading img {
+    margin: 10px;
+  }
+
+  .smaller h3 {
+    font-size: 22px;
+  }
+
+  .bigger {
+    width: 85%;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  .bigger ul {
+    justify-content: center;
+  }
 }
