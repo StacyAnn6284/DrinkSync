@@ -1,6 +1,9 @@
 import React from "react";
 import SubstituteResult from "./substituteResult";
-import { Substitute } from "../../Models/substitute";
+import { Substitute } from "../../models/substitute";
+
+import "./substitutes.css";
+
 
 interface SubstituteResultListProps {
   substitutes: Substitute[];
@@ -23,7 +26,7 @@ const SubstituteResultList: React.FC<SubstituteResultListProps> = ({
       {filteredSubstitutes.length === 0 ? (
         <p>No substitutes found for '{searchTerm}'</p>
       ) : (
-        <ul>
+        <ul className="sub-result-ul">
           {filteredSubstitutes.map((substitute, index) => (
             <SubstituteResult key={index} substitute={substitute} />
           ))}

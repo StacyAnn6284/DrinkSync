@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SubstituteService from "../../services/substituteService";
+import "../substitutes/substitutes.css";
 
 const SubstituteSubmission: React.FC = () => {
   const [missingIngredient, setMissingIngredient] = useState("");
@@ -31,9 +32,12 @@ const SubstituteSubmission: React.FC = () => {
 
   return (
     <div className="substitute-submission">
-      <h2>Came up with your own substitute? Share it!</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className="sub-submission-header">
+        Came up with your own substitute? Share it!
+      </h2>
+      <form className="substitute-submission-form" onSubmit={handleSubmit}>
         <input
+          className="submission-input"
           type="text"
           placeholder="What did you replace?"
           value={missingIngredient}
@@ -41,12 +45,15 @@ const SubstituteSubmission: React.FC = () => {
           required
         />
         <textarea
+          className="solution-text"
           placeholder="your solution?"
           value={solution}
           onChange={(e) => setSolution(e.target.value)}
           required
         ></textarea>
-        <button type="submit">Submit</button>
+        <button className="sub-submission-button" type="submit">
+          Submit
+        </button>
       </form>
       <p>{submissionStatus}</p>
     </div>

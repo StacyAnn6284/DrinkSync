@@ -1,5 +1,5 @@
 import axios from "axios";
-import { DRINK, DRINKresponse, DRINKSingleRespone } from "../Models/drink";
+import { DRINK, DRINKresponse, DRINKSingleRespone } from "../models/drink";
 
 export const searchDrinksByName = (term: string) => {
   return axios.get<DRINKresponse>(
@@ -37,5 +37,14 @@ export const searchDrinksByIngredient = (term: string[]) => {
 export const getDrinkOfTheDay = () => {
   return axios.get<DRINKSingleRespone>(
     "https://www.thecocktaildb.com/api/json/v2/9973533/random.php"
+  );
+};
+
+export const getDrinkbyID = (id: string) => {
+  return axios.get<DRINKSingleRespone>(
+    "https://www.thecocktaildb.com/api/json/v1/1/lookup.php",
+    {
+      params: { i: id },
+    }
   );
 };
