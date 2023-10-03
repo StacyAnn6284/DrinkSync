@@ -2,12 +2,18 @@ import "../LoginSignup/Signup.css";
 import "./Signup.css";
 import React, { useState } from "react";
 import syncLogo from "../Assets/syncLogo.png";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
-import { useNavigate } from "react-router-dom";
+import {
+  User,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  User as FirebaseUser,
+} from "firebase/auth";
+import { auth, googlePRovider } from "../../firebase";
+import { Link, useNavigate } from "react-router-dom";
 
 interface SignupProps {
   onFormSwitch: (formName: string) => void;
+  // history: any;
 }
 
 export const Signup: React.FC<SignupProps> = (props) => {
@@ -38,15 +44,16 @@ export const Signup: React.FC<SignupProps> = (props) => {
       // You can customize the email and password for Google Sign-Up
       // const googleEmail = "user@example.com";
       // const googlePassword = "password";
-
+      const userCredential = await signInWithPopup(auth, googlePRovider);
+      const user = userCredential.user;
+      setUser(user);
+      // navigate("/");
       const randomString = Math.random().toString(36).substring(7);
       const googleEmail = `user+${randomString}@example.com`;
       const googlePassword = "password";
 
-      // Create a user with the predefined email and password
       await createUserWithEmailAndPassword(auth, googleEmail, googlePassword);
 
-      // User signed up with Google successfully
       navigate("/");
     } catch (error) {
       console.error("Error signing up with Google:", error);
@@ -99,9 +106,11 @@ export const Signup: React.FC<SignupProps> = (props) => {
         Sign Up
       </button>
 
-      <button className="formButton" onClick={signInWithGoogle}>
-        Sign Up with Google
-      </button>
+      <Link to={""}>
+        <button className="formButton" onClick={signInWithGoogle}>
+          Sign in with Google
+        </button>
+      </Link>
 
       <button
         className="toggleButton"
@@ -118,5 +127,8 @@ function setPass(arg0: string) {
 }
 
 function setName(arg0: string) {
+  throw new Error("Function not implemented.");
+}
+function setUser(user: User) {
   throw new Error("Function not implemented.");
 }
