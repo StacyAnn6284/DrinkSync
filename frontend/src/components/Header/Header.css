@@ -1,41 +1,65 @@
 .Header {
-  background-image: url("./images/heroPhoto.jpg"),
-    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+  background-image: url("./images/heroPhoto2.jpg"),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4));
   background-size: cover;
+  background-position: center;
+  color: #d9d9d6;
   background-blend-mode: overlay;
-  height: 190px;
-  color: #e3b04b;
-  background-position: bottom;
+  padding: 200px 0;
+  position: relative;
   font-family: "Montserrat", sans-serif;
 }
 
-.sitename {
-  display: flex;
-  align-items: center;
-}
-
-.signin {
-  position: fixed;
-  top: 2px;
-  right: 10px;
-  font-size: 13px;
-}
-
-.Header h3 {
+.tagLine {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-style: italic;
-  font-size: 28px;
+  font-size: 30px;
   margin: 10px 30px 25px 30px;
-  text-shadow: 3px 3px 5px #cdcdcd;
+  text-shadow: 1px 1px 2px #212121;
   text-align: center;
 }
 
-img {
-  margin-left: -15px;
-  margin-right: -20px;
-  width: 80px;
-  height: 45px;
+.headerText {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  text-shadow: 1px 1px 2px #212121;
+  text-align: center;
+}
+
+.tagImage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: -150px;
+}
+
+.aboutRedirect {
+  display: flex;
+  color: #d9d9d6;
+  font-size: 15px;
+  margin: 10px 30px 25px 30px;
+  text-shadow: 1px 1px 4px #212121;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.highlight {
+  color: #e3b04b;
+}
+
+.signin {
+  position: absolute;
+  top: 2px;
+  right: 10px;
+}
+
+.heroLogo {
+  width: 200px;
+  height: auto;
 }
 
 @media only screen and (min-width: 768px) {
@@ -44,7 +68,52 @@ img {
     background-size: cover;
   }
 
-  .Header h3 {
+
+  .signin {
+    font-size: 16px;
+  }
+
+  img {
+    width: 120px;
+    height: 68px;
+  }
+
+  h4 {
+    font-size: 20px;
+    margin-left: -10px;
+  }
+
+  .headerText {
+    width: 200px;
+    height: auto;
+    font-size: 55px;
+  }
+
+  .heroLogo {
+    width: 300px;
+    height: auto;
+    margin-right: -90px;
+    margin-left: -80px;
+  }
+
+  .tagLine {
+    font-size: 40px;
+  }
+
+  .aboutRedirect {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .Header {
+    height: 100px;
+    background-size: cover;
+    background-color: #212121;
+  }
+
+  h3 {
+
     font-size: 40px;
     margin-top: 50px;
   }
@@ -57,8 +126,27 @@ img {
     height: 68px;
   }
 
-  .Header h4 {
+
+  .headerText {
+    width: 200px;
+    height: auto;
+    font-size: 30px;
+    margin: 0;
+  }
+
+  .heroLogo {
+    width: 125px;
+    height: auto;
+    margin-right: -90px;
+    margin-left: -80px;
+  }
+
+  .tagLine {
+
     font-size: 20px;
-    margin-left: -10px;
+  }
+
+  .aboutRedirect {
+    font-size: 12px;
   }
 }

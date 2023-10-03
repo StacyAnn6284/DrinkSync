@@ -1,10 +1,96 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+import "../footer/footer.css";
 
 function Footer() {
   return (
-    <footer>
-      <p>Hi, I am a footer</p>
+    <footer className="siteFooter">
+      <div className="footerContainer">
+        <div className="columnsContainer">
+          <div className="column">
+            <h4 className="title fspace">FAQ</h4>
+          </div>
+          <div className="column test">
+            <h4 className="title">Site Links</h4>
+            <ul className="footerSiteLinks">
+              <li className="textColor">
+                <Link to="/">Home </Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="column gin">
+            <h4 className="title mar">Social Media</h4>
+            <div className="footerSocialLinks">
+              <a className="space" href="https://www.facebook.com/yourpage">
+                <FontAwesomeIcon icon={faFacebook} />
+              </a>
+              <a className="space" href="https://www.twitter.com/yourpage">
+                <FontAwesomeIcon icon={faTwitter} />
+              </a>
+              <a className="space" href="https://www.instagram.com/yourpage">
+                <FontAwesomeIcon icon={faInstagram} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Copyright information */}
+        <div className="copyright">
+          <p>&copy; 2023 | Privacy Policy</p>
+        </div>
+      </div>
     </footer>
+
+    // <footer className="siteFooter">
+    //   <div className="footerContainer">
+    //     <div className="column">
+    //       <h4 className="title">Site Links</h4>
+    //       <ul className="footerSiteLinks">
+    //         <li className="textColor">
+    //           <Link to="/">Home</Link>
+    //         </li>
+    //         <li>
+    //           <Link to="/about">About</Link>
+    //         </li>
+    //       </ul>
+    //     </div>
+    //     <div className="">
+    //       <h4 className="title fspace">FAQ</h4>
+    //     </div>
+    //   </div>
+
+    //   <div className="footerSocialLinks column">
+    //     <div className="column">
+    //       <h4 className="title mar">Social Media</h4>
+    //       <a className="space" href="https://www.facebook.com/yourpage">
+    //         <FontAwesomeIcon icon={faFacebook} />
+    //       </a>
+
+    //       <a className="space" href="https://www.twitter.com/yourpage">
+    //         <FontAwesomeIcon icon={faTwitter} />
+    //       </a>
+
+    //       <a className="space" href="https://www.instagram.com/yourpage">
+    //         <FontAwesomeIcon icon={faInstagram} />
+    //       </a>
+    //       <br />
+    //       <br />
+    //     </div>
+    //   </div>
+
+    //   <div className="copyright">
+    //     <p>&copy; 2023 | Privact Polocy</p>
+    //   </div>
+    // </footer>
   );
 }
 

@@ -53,6 +53,23 @@
   border-radius: 10px;
 }
 
-/* .Header {
-  display: none;
-} */
+.sync {
+  width: 300px;
+  height: auto;
+  animation: sync-spin 3s linear infinite;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sync {
+    animation: sync-spin infinite 20s linear;
+  }
+}
+
+@keyframes sync-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
