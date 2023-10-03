@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import {
   getDrinkOfTheDay,
+  searchDrinksByIngredient,
   searchDrinksByName,
   searchIngredient,
 } from "../../services/drinkServices";
@@ -15,7 +16,11 @@ import NavBar from "../Navigation/NavBar";
 import React from "react";
 import { DRINK } from "../../models/drink";
 
-export const Main = () => {
+interface MainProps {
+  user: any;
+}
+
+export const Main = ({ user }: MainProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState("");
   const [drinks, setDrinks] = useState<DRINK[]>([]);
@@ -99,8 +104,8 @@ export const Main = () => {
 
   return (
     <main className="Main">
-      <NavBar />
-      <Header />
+      {/* <NavBar /> */}
+      {/* <Header /> */}
       <h2>Search by Drink Name</h2>
       <Menu />
       <SearchForm

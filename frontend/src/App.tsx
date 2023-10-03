@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Signup } from "./components/LoginSignup/Signup";
 import { Login } from "./components/LoginSignup/Login";
 import "./App.css";
@@ -12,48 +12,43 @@ import SubstituteSubmission from "./components/SubstituteSubmission/substituteSu
 import { Menu } from "./components/Menu/Menu";
 import NavBar from "./components/Navigation/NavBar";
 import About from "./components/Pages/About";
+import UserContext from "./components/Context/UserContext";
+import { UserProvider } from "./components/Context/UserContextProvider";
 
 function App() {
-  // const location = useLocation();
-  // const isLoginPage = location.pathname === "/login";
-
   const [currentForm, setCurrentForm] = useState("login");
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
 
   const toggleForm = (formName: React.SetStateAction<string>) => {
     setCurrentForm(formName);
   };
 
+  const { user } = useContext(UserContext);
   return (
-    <div className="App">
-      <Router>
-        <Routes>
-          <Route
-            path="/login"
-            element={
-              currentForm === "login" ? (
-                <Login onFormSwitch={toggleForm} history={undefined} />
-              ) : (
-                <Signup onFormSwitch={toggleForm} />
-              )
-            }
-          ></Route>
-          <Route path="/" element={<Main />}></Route>
-          <Route
-            path="/substitutes"
-            element={
-              <div className="substitute-page">
-                <MainSubstitute />
-                <SubstituteSubmission />
-              </div>
-            }
-          ></Route>
-          <Route path="/about" element={<About />}></Route>
-        </Routes>
 
-        <Footer></Footer>
-      </Router>
-    </div>
+    <UserProvider>
+      <div className="App">
+        <Router>
+          <NavBar />
+          <Routes>
+            <Route
+              path="/login"
+              element={
+                currentForm === "login" ? (
+                  <Login onFormSwitch={toggleForm} history={undefined} />
+                ) : (
+                  <Signup onFormSwitch={toggleForm} />
+                )
+              }
+            ></Route>
+            <Route path="/" element={<Main user={user} />}></Route>
+             <Route path="/substitutes" element={<AllSubstitutes />}></Route>
+            <Route path="/about" element={<About />}></Route>
+          </Routes>
+          <Footer></Footer>
+        </Router>
+      </div>
+    </UserProvider>
   );
 }
 
