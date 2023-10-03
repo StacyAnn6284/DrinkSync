@@ -3,7 +3,6 @@ import { Substitute } from "../../models/substitute";
 
 import "./substitutes.css";
 
-
 interface SubstituteSearchFormProps {
   onSearch: (searchTerm: string) => void;
 }

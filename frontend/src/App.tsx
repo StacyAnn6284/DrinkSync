@@ -12,12 +12,16 @@ import SubstituteSubmission from "./components/SubstituteSubmission/substituteSu
 import { Menu } from "./components/Menu/Menu";
 import NavBar from "./components/Navigation/NavBar";
 import About from "./components/Pages/About";
+
+// import { Favorites } from "./favorites/Favorites";
+
 import UserContext from "./components/Context/UserContext";
 import { UserProvider } from "./components/Context/UserContextProvider";
 
+
 function App() {
   const [currentForm, setCurrentForm] = useState("login");
-  // const [user, setUser] = useState(null);
+
 
   const toggleForm = (formName: React.SetStateAction<string>) => {
     setCurrentForm(formName);
@@ -25,6 +29,7 @@ function App() {
 
   const { user } = useContext(UserContext);
   return (
+
 
     <UserProvider>
       <div className="App">

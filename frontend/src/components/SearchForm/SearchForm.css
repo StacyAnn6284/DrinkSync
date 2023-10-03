@@ -1,0 +1,97 @@
+/* this is for mobile view and bigger*/
+
+.drinkSearchForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-bottom: #684e17 solid 2px;
+  padding-bottom: 20px;
+}
+
+.drinkSearchForm div {
+  margin-top: 10px;
+}
+
+.searchButton {
+  border-radius: 10px;
+  background-color: #5a5956;
+  color: #c5942b;
+  font-family: "Monsterrat", sans-serif;
+  font-weight: bold;
+  font-size: large;
+  width: 80px;
+  height: 40px;
+  padding-right: 15px;
+}
+
+.search-form-input {
+  border-style: hidden;
+  border-radius: 50px;
+  background-color: #b6b4b2;
+  height: 20px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-right: 7px;
+  font-size: large;
+}
+
+.radioButtons {
+  color: #977428;
+  font-size: 13px;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+/* this is for tablet view and bigger*/
+@media screen and (min-width: 480px) {
+  .searchButton {
+    border-radius: 10px;
+    background-color: #5a5956;
+    color: #c5942b;
+    font-family: "Monsterrat", sans-serif;
+    font-weight: bold;
+    font-size: large;
+  }
+  .search-form-input {
+    border-radius: 50px;
+    background-color: #b6b4b2;
+    height: 40px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-right: 7px;
+    font-size: medium;
+    width: 200px;
+  }
+  .radioButtons {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+}
+
+/* this is for desktop view */
+@media screen and (min-width: 780px) {
+  .searchButton {
+    border-radius: 10px;
+    background-color: #5a5956;
+    color: #c5942b;
+    font-family: "Monsterrat", sans-serif;
+    font-weight: bold;
+    font-size: large;
+  }
+
+  .search-form-input {
+    border-radius: 50px;
+    background-color: #b6b4b2;
+    height: 40px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-right: 7px;
+    font-size: large;
+  }
+}

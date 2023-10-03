@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import {
   getDrinkOfTheDay,
   searchDrinksByIngredient,
@@ -16,6 +16,10 @@ import NavBar from "../Navigation/NavBar";
 import React from "react";
 import { DRINK } from "../../models/drink";
 
+
+
+
+  // reference to the query params
 interface MainProps {
   user: any;
 }
@@ -27,8 +31,10 @@ export const Main = ({ user }: MainProps) => {
   const [random, setRandom] = useState<DRINK>();
   const [randomisVisible, setRandomIsVisible] = useState(true);
   const [by, setBy] = useState("");
+  // largeCard is used to determine if the full recipe or just title and image are displayed
   const [largeCard, setLargeCard] = useState(true);
 
+  // pulling and setting the search tearms from the SearchForm component
   const updateSearchTerm = (term: string, by: string) => {
     setSearchTerm(term);
     setBy(by);
@@ -37,6 +43,7 @@ export const Main = ({ user }: MainProps) => {
     setSearchParams(searchParams);
   };
 
+  // function to hide the drink of the day once a search is completed
   function hideRandom() {
     setRandomIsVisible(false);
   }
@@ -53,6 +60,7 @@ export const Main = ({ user }: MainProps) => {
     }
   }, []);
 
+  // determines if search by ingredient or name is used and then gets the drinks from the API through services function
   useEffect(() => {
     if (searchTerm !== "" && by === "name") {
       searchDrinksByName(searchTerm).then((response) => {
@@ -104,18 +112,23 @@ export const Main = ({ user }: MainProps) => {
 
   return (
     <main className="Main">
-      {/* <NavBar /> */}
-      {/* <Header /> */}
+
+
       <h2>Search by Drink Name</h2>
+
       <Menu />
       <SearchForm
         currentTerm={searchTerm}
         submit={updateSearchTerm}
         hideRandom={hideRandom}
       ></SearchForm>
+      {/* <h1>
+        {" "}
+        <Link to="/substitutes">View your Saved Drinks</Link>
+      </h1> */}
 
       {random && randomisVisible && (
-        <div>
+        <div className="drinkofDay">
           <h2>Drink of the Day</h2>
           <DrinkCard largeCard={largeCard} drink={random} />
         </div>

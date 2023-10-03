@@ -55,7 +55,6 @@
   position: absolute;
   top: 2px;
   right: 10px;
-  /* font-size: 13px; */
 }
 
 .heroLogo {
@@ -68,6 +67,7 @@
     height: 300px;
     background-size: cover;
   }
+
 
   .signin {
     font-size: 16px;
@@ -113,6 +113,7 @@
   }
 
   h3 {
+
     font-size: 40px;
     margin-top: 50px;
   }
@@ -124,6 +125,7 @@
     width: 120px;
     height: 68px;
   }
+
 
   .headerText {
     width: 200px;
@@ -140,6 +142,7 @@
   }
 
   .tagLine {
+
     font-size: 20px;
   }
 
