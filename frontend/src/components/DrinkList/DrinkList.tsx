@@ -11,14 +11,12 @@ interface DrinkListProps {
 export const DrinkList = ({ drinks, largeCard }: DrinkListProps) => {
   // setting up two columns to be used with desktop view
   const halfway = Math.floor(drinks.length / 2);
-  const col1 = drinks.splice(0, halfway);
-  const col2 = drinks;
 
   try {
     return (
       <ul className="DrinkList">
         <div className="Column1">
-          {col1?.map((drink) => (
+          {drinks?.slice(0, halfway).map((drink) => (
             <DrinkCard
               key={drink.idDrink}
               largeCard={largeCard}
@@ -27,7 +25,7 @@ export const DrinkList = ({ drinks, largeCard }: DrinkListProps) => {
           ))}
         </div>
         <div className="Column2">
-          {col2?.map((drink) => (
+          {drinks?.slice(halfway, drinks.length).map((drink) => (
             <DrinkCard
               key={drink.idDrink}
               largeCard={largeCard}

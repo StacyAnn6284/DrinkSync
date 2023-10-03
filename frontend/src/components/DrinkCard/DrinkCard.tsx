@@ -21,10 +21,13 @@ export const DrinkCard = ({ drink, largeCard }: DrinkCardProps) => {
 
   // using the drinkID to pull the drink from the API for detailed drink instructions
   useEffect(() => {
-    getDrinkbyID(drink.idDrink).then((response) => {
-      setDrinkbyID(response.data.drinks[0]);
-    });
-  }, []);
+    // only do this if expanded is true
+    if (expanded) {
+      getDrinkbyID(drink.idDrink).then((response) => {
+        setDrinkbyID(response.data.drinks[0]);
+      });
+    }
+  }, [expanded]);
 
   return (
     <li className={expanded ? "bigger" : "smaller"} onClick={handleExpand}>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import {
   getDrinkOfTheDay,
   searchDrinksByName,
@@ -114,6 +114,10 @@ export const Main = () => {
         submit={updateSearchTerm}
         hideRandom={hideRandom}
       ></SearchForm>
+      {/* <h1>
+        {" "}
+        <Link to="/substitutes">View your Saved Drinks</Link>
+      </h1> */}
 
       {random && randomisVisible && (
         <div className="drinkofDay">

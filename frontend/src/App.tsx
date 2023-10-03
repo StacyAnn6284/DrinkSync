@@ -12,13 +12,13 @@ import SubstituteSubmission from "./components/SubstituteSubmission/substituteSu
 import { Menu } from "./components/Menu/Menu";
 import NavBar from "./components/Navigation/NavBar";
 import About from "./components/Pages/About";
+// import { Favorites } from "./favorites/Favorites";
 
 function App() {
   // const location = useLocation();
   // const isLoginPage = location.pathname === "/login";
 
   const [currentForm, setCurrentForm] = useState("login");
-  const [user, setUser] = useState(null);
 
   const toggleForm = (formName: React.SetStateAction<string>) => {
     setCurrentForm(formName);
@@ -49,6 +49,7 @@ function App() {
             }
           ></Route>
           <Route path="/about" element={<About />}></Route>
+          {/* <Route path="/favories" element={<Favorites />}></Route> */}
         </Routes>
 
         <Footer></Footer>
