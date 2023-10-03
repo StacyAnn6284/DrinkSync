@@ -6,12 +6,13 @@ import Header from "./components/Header/Header";
 import { Main } from "./components/Main/Main";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import MainSubstitute from "./components/mainSubstitute/mainSubstitute";
+import MainSubstitute from "./components/AllSubstitutes/mainSubstitute/mainSubstitute";
 import Footer from "./components/footer/footer";
-import SubstituteSubmission from "./components/SubstituteSubmission/substituteSubmission";
+import SubstituteSubmission from "./components/AllSubstitutes/SubstituteSubmission/substituteSubmission";
 import { Menu } from "./components/Menu/Menu";
 import NavBar from "./components/Navigation/NavBar";
 import About from "./components/Pages/About";
+import AllSubstitutes from "./components/AllSubstitutes/allSubstitutes";
 
 function App() {
   // const location = useLocation();
@@ -39,15 +40,7 @@ function App() {
             }
           ></Route>
           <Route path="/" element={<Main />}></Route>
-          <Route
-            path="/substitutes"
-            element={
-              <div className="substitute-page">
-                <MainSubstitute />
-                <SubstituteSubmission />
-              </div>
-            }
-          ></Route>
+          <Route path="/substitutes" element={<AllSubstitutes />}></Route>
           <Route path="/about" element={<About />}></Route>
         </Routes>
 

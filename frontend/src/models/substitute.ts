@@ -1,5 +1,6 @@
+//Define the Substitute interface for typescript
 export interface Substitute {
-  _id?: string; // MongoDB document ID
+  _id?: string; // MongoDB document ID - _id field is optional
   missingIngredient: string;
   solution: string;
 }

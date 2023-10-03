@@ -1,7 +1,9 @@
 import React from "react";
-import { Substitute } from "../../models/substitute";
+import { Substitute } from "../../../models/substitute";
 import "./substitutes.css";
 
+// This is a functional component that displays a single substitute object.
+// It receives the 'substitute' as a prop and renders its missing ingredient and solution.
 
 const SubstituteResult = ({ substitute }: { substitute: Substitute }) => {
   return (
