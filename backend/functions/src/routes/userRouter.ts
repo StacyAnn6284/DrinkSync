@@ -1,6 +1,6 @@
 import express from "express";
 import { getClient } from "../db";
-import user from "../Models/user";
+// import user from "../Models/user";
 
 const userRouter = express.Router();
 
@@ -12,9 +12,9 @@ const errorResponse = (error: any, res: any) => {
 userRouter.get("/user", async (req, res) => {
   try {
     const client = await getClient();
-    const cursor = client.db().collection<user>("user").find();
-    const results = await cursor.toArray();
-    res.json(results);
+    // const cursor = client.db().collection<user>("user").find();
+    // const results = await cursor.toArray();
+    // res.json(results);
   } catch (err) {
     errorResponse(err, res);
   }

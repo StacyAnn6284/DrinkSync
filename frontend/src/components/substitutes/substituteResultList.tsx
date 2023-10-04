@@ -1,9 +1,7 @@
 import React from "react";
 import SubstituteResult from "./substituteResult";
-import { Substitute } from "../../models/substitute";
-
 import "./substitutes.css";
-
+import { Substitute } from "../../Models/substitute";
 
 interface SubstituteResultListProps {
   substitutes: Substitute[];

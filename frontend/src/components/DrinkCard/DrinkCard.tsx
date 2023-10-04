@@ -1,7 +1,6 @@
-
 import { useEffect, useState } from "react";
 
-import { DRINK } from "../../models/drink";
+import { DRINK } from "../../Models/drink";
 import "./DrinkCard.css";
 import { Link } from "react-router-dom";
 import { getDrinkbyID } from "../../services/drinkServices";

@@ -14,7 +14,7 @@ import Header from "../Header/Header";
 import { Menu } from "../Menu/Menu";
 import NavBar from "../Navigation/NavBar";
 import React from "react";
-import { DRINK } from "../../models/drink";
+import { DRINK } from "../../Models/drink";
 
 interface MainProps {
   user: any;

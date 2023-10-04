@@ -1,5 +1,5 @@
 import axios from "axios";
-import { DRINK, DRINKresponse, DRINKSingleRespone } from "../models/drink";
+import { DRINK, DRINKresponse, DRINKSingleRespone } from "../Models/drink";
 
 export const searchDrinksByName = (term: string) => {
   return axios.get<DRINKresponse>(
