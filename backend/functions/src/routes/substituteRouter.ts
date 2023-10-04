@@ -4,10 +4,13 @@ import substitute from "../Models/substitute";
 
 const substituteRouter = express.Router();
 
+//Helper function for handling errors
 const errorResponse = (error: any, res: any) => {
   console.error("FAIL", error);
   res.status(500).json({ message: "Internal Server Error" });
 };
+
+//GET route to retrieve all substitutes
 
 substituteRouter.get("/substitutes", async (req, res) => {
   try {
@@ -20,6 +23,8 @@ substituteRouter.get("/substitutes", async (req, res) => {
     errorResponse(err, res);
   }
 });
+
+//POST route to create a new substitute
 
 substituteRouter.post("/substitutes", async (req, res) => {
   try {

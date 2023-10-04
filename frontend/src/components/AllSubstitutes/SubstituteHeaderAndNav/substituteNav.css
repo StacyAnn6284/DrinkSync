@@ -1,0 +1,60 @@
+.substituteNav nav {
+  height: 40px;
+  background-color: rgb(55, 55, 66);
+  border-style: hidden;
+  color: #c5942b;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.drink-sync-links a {
+  color: #c5942b;
+  text-decoration: none;
+}
+
+.drink-sync-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  flex-wrap: wrap;
+  background-color: rgb(55, 55, 66);
+  color: #c5942b;
+  height: 40px;
+  padding-right: 20%;
+  padding-left: 20%;
+  margin: 0%;
+  border-style: hidden;
+  list-style-type: none;
+}
+
+@media screen and (min-width: 768px) {
+  .drink-sync-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(55, 55, 66);
+    padding: 0%;
+    margin: 0 10px;
+    border-style: hidden;
+    list-style-type: none;
+    font-size: large;
+  }
+}
+
+@media screen and (min-width: 780px) {
+  .drink-sync-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(55, 55, 66);
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 2%;
+    margin: 0%;
+    border-style: hidden;
+    list-style-type: none;
+  }
+}

@@ -1,18 +1,22 @@
 import React, { useState } from "react";
-import { Substitute } from "../../models/substitute";
+import { Substitute } from "../../../models/substitute";
 
 import "./substitutes.css";
 
+// Define the props expected by the SubstituteSearchForm component
 interface SubstituteSearchFormProps {
-  onSearch: (searchTerm: string) => void;
+  onSearch: (searchTerm: string) => void; //Callback function to handle search
 }
 
 const SubstituteSearchForm: React.FC<SubstituteSearchFormProps> = ({
   onSearch,
 }) => {
+  //State to manage the search term input
   const [searchTerm, setSearchTerm] = useState("");
 
+  //Handle the search button click
   const handleSearch = () => {
+    //Call the 'onSearch' callback with the current search term
     onSearch(searchTerm);
   };
 
@@ -23,6 +27,7 @@ const SubstituteSearchForm: React.FC<SubstituteSearchFormProps> = ({
         type="text"
         placeholder="your missing ingredient"
         value={searchTerm}
+        //Update the search term state on input change
         onChange={(e) => setSearchTerm(e.target.value)}
       />
       <button className="sub-search-button" onClick={handleSearch}>
