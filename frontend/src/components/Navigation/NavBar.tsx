@@ -4,13 +4,22 @@ import "../Navigation/NavBar.css";
 import syncLogo from "../Assets/syncLogo.png";
 import Header from "../Header/Header";
 // import { signInWithGoogle } from "../auth";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, signOut } from "firebase/auth";
 import { auth, googlePRovider } from "../../firebase";
 import UserContext from "../Context/UserContext";
 
 export default function NavBar() {
   const { user } = useContext(UserContext);
   console.log(user);
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      setUser(null);
+    } catch (err) {
+      console.error("Error signing in with Google:", err);
+    }
+  };
 
   return (
     <>
@@ -37,8 +46,17 @@ export default function NavBar() {
         </div>
         {user ? (
           <div className="userOptions">
-            <p>Welcome, {user.displayName}!</p>
-            {user.photoURL && <img src={user.photoURL} />}
+            <div className="profile">
+              <p className="color">Welcome, {user.displayName}!</p>
+              {user.photoURL && (
+                <img className="styleProfile" src={user.photoURL} />
+              )}
+            </div>
+            <div>
+              <button className="buttonStyle" onClick={logout}>
+                Log Out
+              </button>
+            </div>
           </div>
         ) : (
           <Link className="signin" to="/login" rel="noopener noreferrer">
@@ -49,4 +67,7 @@ export default function NavBar() {
       <Header />
     </>
   );
+}
+function setUser(arg0: null) {
+  throw new Error("Function not implemented.");
 }

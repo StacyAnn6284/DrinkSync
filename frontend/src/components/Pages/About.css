@@ -1,0 +1,125 @@
+.body {
+  margin: 200px;
+}
+
+.aboutContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-right: 500px; */
+  /* max-width: 75%; */
+}
+
+p {
+  color: #333;
+  font-size: x-large;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 25px;
+}
+
+.pSpacing {
+  margin-left: 150px;
+}
+
+.aboutDS {
+  margin-bottom: 50px;
+}
+
+.centerText {
+  text-align: center;
+  background-color: #ebebeb;
+  padding: 50px;
+}
+
+.pageTitle {
+  color: #404040;
+}
+
+.bgColor {
+  background-color: #ebebeb;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+.bmar {
+  margin-left: 150px;
+}
+
+.mtop {
+  margin-top: -100px;
+}
+
+/* What we offer */
+
+.offer {
+  text-align: center;
+  padding: 50px;
+}
+
+/* Ingredients Section */
+.ingredients {
+  display: flex;
+  align-items: center;
+}
+
+.ingredients img {
+  max-width: 50%;
+  margin-right: 100px;
+  margin-bottom: 20px;
+  width: 500px;
+  height: auto;
+  padding-right: 20px;
+}
+
+.ingredients p {
+  flex: 1;
+  max-width: 500px;
+}
+
+.ptitle {
+  margin-bottom: 20px;
+}
+
+/* Search by Name */
+
+.leftMar {
+  margin-left: 250px;
+}
+
+/* Cheers */
+.spacing {
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+/* Stacy */
+.stacy {
+  margin-bottom: 50px;
+}
+
+.stacyImg {
+  width: 200px;
+  height: auto;
+  margin-bottom: 50px;
+}
+
+/* Nell */
+.nellImg {
+  padding-left: 50px;
+  margin-bottom: 50px;
+}
+
+/* Akhirah */
+.akhirahImg {
+  margin-top: 50px;
+}

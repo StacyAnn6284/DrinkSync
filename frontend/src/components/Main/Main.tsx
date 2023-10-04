@@ -104,8 +104,6 @@ export const Main = ({ user }: MainProps) => {
 
   return (
     <main className="Main">
-      {/* <NavBar /> */}
-      {/* <Header /> */}
       <h2>Search by Drink Name</h2>
       <Menu />
       <SearchForm

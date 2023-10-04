@@ -1,12 +1,48 @@
 .Main {
-  background-color: lightgray;
+  background-color: rgb(55, 55, 66);
   font-family: "Montserrat", sans-serif;
+  color: #e3b04b;
 }
 
-h2 {
-  margin: 20px;
+.Main h2 {
+  color: #e3b04b;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  margin-top: 50px;
+  text-align: center;
 }
 
-h4 {
-  margin: 20px;
+.drinkofDay {
+  width: 85%;
+  margin: auto;
+}
+
+/* this is for tablet view and bigger*/
+@media screen and (min-width: 480px) {
+  .searchDrinks {
+    margin-bottom: 3%;
+  }
+  .Main {
+    display: flex;
+    flex-direction: column;
+  }
+  .Main h2 {
+    font-size: 42px;
+    margin-top: 70px;
+    text-align: center;
+  }
+}
+
+/* this is for desktop view */
+@media screen and (min-width: 780px) {
+  .searchDrinks {
+    margin-bottom: 3%;
+  }
+
+  .Main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
 }
