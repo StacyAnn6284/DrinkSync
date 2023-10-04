@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 
 import { DRINK } from "../../models/drink";
@@ -6,6 +5,7 @@ import "./DrinkCard.css";
 import { Link } from "react-router-dom";
 import { getDrinkbyID } from "../../services/drinkServices";
 
+// passing each individual drink down from DrinkList
 interface DrinkCardProps {
   drink: DRINK;
   largeCard: boolean;
@@ -19,17 +19,22 @@ export const DrinkCard = ({ drink, largeCard }: DrinkCardProps) => {
 
   const [drinkbyID, setDrinkbyID] = useState(drink);
 
+  // using the drinkID to pull the drink from the API for detailed drink instructions
   useEffect(() => {
-    getDrinkbyID(drink.idDrink).then((response) => {
-      setDrinkbyID(response.data.drinks[0]);
-    });
-  }, []);
+    // only do this if expanded is true
+    if (expanded) {
+      getDrinkbyID(drink.idDrink).then((response) => {
+        setDrinkbyID(response.data.drinks[0]);
+      });
+    }
+  }, [expanded]);
 
   return (
     <li className={expanded ? "bigger" : "smaller"} onClick={handleExpand}>
-      <h3>{drinkbyID.strDrink}</h3>
-
-      <img src={drinkbyID.strDrinkThumb}></img>
+      <div className="drinkHeading">
+        <h3>{drinkbyID.strDrink}</h3>
+        <img src={drinkbyID.strDrinkThumb}></img>
+      </div>
       {expanded && (
         <div>
           <ul>
@@ -40,27 +45,23 @@ export const DrinkCard = ({ drink, largeCard }: DrinkCardProps) => {
             )}
             {drinkbyID.strIngredient2 != null && (
               <li>
-                {" "}
                 {drinkbyID.strMeasure2} {drinkbyID.strIngredient2}
               </li>
             )}
             {drinkbyID.strIngredient3 != null && (
               <li>
-                {" "}
                 {drinkbyID.strMeasure3}
                 {drinkbyID.strIngredient3}
               </li>
             )}
             {drinkbyID.strIngredient4 != null && (
               <li>
-                {" "}
                 {drinkbyID.strMeasure4}
                 {drinkbyID.strIngredient4}
               </li>
             )}
             {drinkbyID.strIngredient5 != null && (
               <li>
-                {" "}
                 {drinkbyID.strMeasure5}
                 {drinkbyID.strIngredient5}
               </li>
@@ -127,7 +128,6 @@ export const DrinkCard = ({ drink, largeCard }: DrinkCardProps) => {
             )}
           </ul>
           <Link to="/substitutes">
-            {" "}
             <p>Missing an ingredient? Find a substitution</p>
           </Link>
           <p>{drinkbyID.strInstructions}</p>

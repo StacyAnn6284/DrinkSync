@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { auth, googlePRovider } from "../../firebase";
 import "../LoginSignup/Login.css";
 import "./Login.css";
-import syncLogo from "../Assets/syncLogo.png";
+import sLogo from "../Assets/sLogo.png";
 import {
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -26,19 +26,20 @@ export const Login: React.FC<LoginProps> = (props) => {
 
   const signInWithGoogle = async () => {
     try {
-      const userCredential = await signInWithPopup(auth, googlePRovider);
-      const user = userCredential.user;
-      setUser(user);
-      navigate("/");
-    } catch (err) {
-      console.error("Error signing in with Google:", err);
-    }
-  };
+      await signInWithPopup(auth, googlePRovider).then((userCredential) => {
+        const user = userCredential.user;
+        const name = userCredential.user.displayName;
+        const profilePic = userCredential.user.photoURL;
 
-  const logout = async () => {
-    try {
-      await signOut(auth);
-      setUser(null);
+        if (name !== null) {
+          localStorage.setItem("name", name);
+        }
+        if (profilePic !== null) {
+          localStorage.setItem("profilePic", profilePic);
+        }
+        setUser(user);
+        navigate("/");
+      });
     } catch (err) {
       console.error("Error signing in with Google:", err);
     }
@@ -62,9 +63,18 @@ export const Login: React.FC<LoginProps> = (props) => {
       });
   };
 
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      setUser(null);
+    } catch (err) {
+      console.error("Error signing in with Google:", err);
+    }
+  };
+
   return (
     <div className="formCantaner">
-      <img className="sync" src={syncLogo} alt="logo" />
+      <img className="sync" src={sLogo} alt="logo" />
       <form className="loginForm" onSubmit={handleSubmit}>
         <label className="loginLabel" htmlFor="email">
           Email
@@ -92,7 +102,7 @@ export const Login: React.FC<LoginProps> = (props) => {
         />
       </form>
       {/* {user ? (
-        // Display the user's name if they are logged in
+       
         <>
           <p>Welcome, {user.displayName}!</p>
           <button onClick={logout}>Log Out</button>
@@ -106,10 +116,12 @@ export const Login: React.FC<LoginProps> = (props) => {
           </button>
         </Link>
         <Link to={""}>
-          <button onClick={signInWithGoogle}>Sign in with Google</button>
+          <button className="formButton" onClick={signInWithGoogle}>
+            Sign in with Google
+          </button>
         </Link>
 
-        <button onClick={logout}>Log Out</button>
+        {/* <button onClick={logout}>Log Out</button> */}
 
         <button
           className="toggleButton"
@@ -122,6 +134,10 @@ export const Login: React.FC<LoginProps> = (props) => {
     </div>
   );
 };
-// function setCurrentUser() {
-//   throw new Error("Function not implemented.");
-// }
+
+{
+  /* function setCurrentUser() { */
+}
+{
+  /* throw new Error("Function not implemented."); */
+}

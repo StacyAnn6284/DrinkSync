@@ -9,5 +9,8 @@
     "@types/express": "^4.17.17",
     "concurrently": "^8.2.1",
     "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "serve:dev": "npm run serv:dev"
   }
 }
