@@ -1,4 +1,6 @@
 import React from "react";
+import Header from "../Header/Header";
+import NavBar from "../Navigation/NavBar";
 import stacy from "../Assets/Stacy.jpg";
 import nell from "../Assets/nell.jpg";
 import akhirah from "../Assets/akhirah.jpg";

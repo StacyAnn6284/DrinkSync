@@ -25,6 +25,7 @@ function App() {
 
   const { user } = useContext(UserContext);
   return (
+
     <UserProvider>
       <div className="App">
         <Router>
@@ -41,14 +42,9 @@ function App() {
               }
             ></Route>
             <Route path="/" element={<Main user={user} />}></Route>
-            <Route path="/substitutes" element={<MainSubstitute />}></Route>
-            <Route
-              path="/substituteSubmission"
-              element={<SubstituteSubmission />}
-            ></Route>
+             <Route path="/substitutes" element={<AllSubstitutes />}></Route>
             <Route path="/about" element={<About />}></Route>
           </Routes>
-
           <Footer></Footer>
         </Router>
       </div>
