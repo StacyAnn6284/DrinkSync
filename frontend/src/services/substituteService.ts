@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SubstituteResponse, Substitute } from "../models/substitute";
+import { SubstituteResponse, Substitute } from "../Models/substitute";
 
 const BASE_URL = "http://127.0.0.1:5001/drinksync-426f9/us-central1/api";
 

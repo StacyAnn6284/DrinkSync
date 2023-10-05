@@ -142,6 +142,35 @@
   margin-right: 50px;
 }
 
+.buttonStyle {
+  border: none;
+  width: 100%;
+  color: #e3b04b;
+  background-color: transparent;
+  text-align: left;
+}
+
+.styleProfile {
+  border-radius: 50%;
+  max-width: 25px;
+  height: auto;
+  margin-left: 10px;
+}
+
+.userOptions {
+  /* display: flex; */
+  width: 100%;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+}
+
+.color {
+  color: antiquewhite;
+}
+
 /* Mobile Styles */
 @media (max-width: 1224px) {
   .burgerMenu,

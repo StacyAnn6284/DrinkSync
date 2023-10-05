@@ -1,8 +1,10 @@
 import React from "react";
 import SubstituteResult from "./substituteResult";
-import { Substitute } from "../../../models/substitute";
-
 import "./substitutes.css";
+import { Substitute } from "../../../Models/substitute";
+
+
+
 
 // Define the props expected by the SubstituteResultList component
 interface SubstituteResultListProps {
