@@ -1,0 +1,75 @@
+.substituteHeader {
+  background-image: url("../../Header/images/heroPhoto.jpg"),
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+  background-size: cover;
+  background-blend-mode: overlay;
+  height: 100px;
+  color: #e3b04b;
+  background-position: bottom;
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  color: #c5942b;
+  text-decoration: none;
+}
+
+.substituteSitename {
+  font-size: medium;
+  display: flex;
+  align-items: center;
+  color: #e3b04b;
+}
+
+.drink-sync {
+  margin-left: 0%;
+}
+
+.substituteSignin {
+  color: #e3b04b !important;
+  font-weight: bold;
+  position: fixed;
+  top: 2px;
+  right: 10px;
+  font-size: 13px;
+}
+
+@media screen and (min-width: 768px) {
+  .substituteHeader {
+    height: 150px;
+  }
+
+  a {
+    font-size: larger;
+  }
+
+  .substituteSitename {
+    font-size: medium;
+  }
+
+  .drink-sync {
+    margin-left: 0%;
+    font-size: larger;
+  }
+
+  .substituteSignin {
+    font-weight: bold;
+    font-size: large;
+  }
+}
+
+@media screen and (min-width: 780px) {
+  .substituteHeader {
+    height: 90px;
+  }
+
+  .drink-sync {
+    margin-left: 0%;
+    font-size: larger;
+  }
+
+  .substituteSignin {
+    color: #c5942b;
+    font-weight: bold;
+  }
+}

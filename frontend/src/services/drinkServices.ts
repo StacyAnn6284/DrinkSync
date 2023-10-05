@@ -42,7 +42,7 @@ export const getDrinkOfTheDay = () => {
 
 export const getDrinkbyID = (id: string) => {
   return axios.get<DRINKSingleRespone>(
-    "https://www.thecocktaildb.com/api/json/v1/1/lookup.php",
+    "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php",
     {
       params: { i: id },
     }

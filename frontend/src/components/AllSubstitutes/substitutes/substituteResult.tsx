@@ -1,6 +1,6 @@
 import React from "react";
 import "./substitutes.css";
-import { Substitute } from "../../Models/substitute";
+import { Substitute } from "../../../Models/substitute";
 
 const SubstituteResult = ({ substitute }: { substitute: Substitute }) => {
   return (

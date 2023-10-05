@@ -1,11 +1,11 @@
 import React from "react";
 import SubstituteResult from "./substituteResult";
 import "./substitutes.css";
-import { Substitute } from "../../Models/substitute";
+import { Substitute } from "../../../Models/substitute";
 
 interface SubstituteResultListProps {
-  substitutes: Substitute[];
-  searchTerm: string;
+  substitutes: Substitute[]; //List of substitutes to display
+  searchTerm: string; //The current search term
 }
 
 const SubstituteResultList: React.FC<SubstituteResultListProps> = ({

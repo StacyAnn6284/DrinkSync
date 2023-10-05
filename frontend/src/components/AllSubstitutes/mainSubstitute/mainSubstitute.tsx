@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Substitute } from "../../Models/substitute";
-import SubstituteService from "../../services/substituteService";
+import { Substitute } from "../../../Models/substitute";
+import SubstituteService from "../../../services/substituteService";
 import SubstituteSearchForm from "../substitutes/substituteSearchForm";
 import SubstituteResultList from "../substitutes/substituteResultList";
-import syncLogo from "../Assets/syncLogo.png";
+import syncLogo from "../../Assets/syncLogo.png";
 import "../substitutes/substitutes.css";
 
 const MainSubstitute: React.FC = () => {
+  //State to manage the search term and search results
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [substitutes, setSubstitutes] = useState<Substitute[]>([]);
 
+  //Effect to fetch substitutes based on the search term
   useEffect(() => {
     if (searchTerm) {
       // retrieve substitutes when searchTerm changes
@@ -26,6 +28,7 @@ const MainSubstitute: React.FC = () => {
     }
   }, [searchTerm]);
 
+  //Handle search term changes
   const handleSearch = (term: string) => {
     setSearchTerm(term);
   };
