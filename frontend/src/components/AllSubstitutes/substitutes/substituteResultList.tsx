@@ -3,6 +3,10 @@ import SubstituteResult from "./substituteResult";
 import "./substitutes.css";
 import { Substitute } from "../../../Models/substitute";
 
+
+
+
+// Define the props expected by the SubstituteResultList component
 interface SubstituteResultListProps {
   substitutes: Substitute[]; //List of substitutes to display
   searchTerm: string; //The current search term

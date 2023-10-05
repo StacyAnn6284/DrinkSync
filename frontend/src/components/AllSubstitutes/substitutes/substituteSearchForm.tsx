@@ -1,7 +1,14 @@
 import React, { useState } from "react";
+
 // import { Substitute } from "../../Models/substitute";
 
 import "./substitutes.css";
+
+
+
+
+
+// Define the props expected by the SubstituteSearchForm component
 
 interface SubstituteSearchFormProps {
   onSearch: (searchTerm: string) => void; //Callback function to handle search

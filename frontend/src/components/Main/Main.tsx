@@ -16,7 +16,12 @@ import NavBar from "../Navigation/NavBar";
 import React from "react";
 import { DRINK } from "../../Models/drink";
 
-// reference to the query params
+
+
+
+
+  // reference to the query params
+
 interface MainProps {
   user: any;
 }
@@ -109,6 +114,7 @@ export const Main = ({ user }: MainProps) => {
 
   return (
     <main className="Main">
+
       <Menu />
       <SearchForm
         currentTerm={searchTerm}
