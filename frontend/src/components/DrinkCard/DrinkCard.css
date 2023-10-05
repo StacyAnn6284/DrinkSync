@@ -1,6 +1,24 @@
+.button button {
+  border-radius: 7px;
+  background-color: #5a5956;
+  color: #c5942b;
+  font-family: "Monsterrat", sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  width: 70px;
+  height: 30px;
+  margin: 3px;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
 .smaller {
   list-style: none;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-right: 30px;
 }
 
@@ -45,6 +63,11 @@
   width: 250px;
   height: 250px;
   margin: auto;
+}
+
+.bigger .button {
+  justify-content: center;
+  margin: 15px;
 }
 
 /* this is for tablet view and bigger*/

@@ -35,10 +35,14 @@ export default function NavBar() {
             </li>
           </ul>
         </div>
+
         {user ? (
           <div className="userOptions">
             <p>Welcome, {user.displayName}!</p>
             {user.photoURL && <img src={user.photoURL} />}
+            <p>
+              <Link to="/favorites">Saved Drinks</Link>
+            </p>
           </div>
         ) : (
           <Link className="signin" to="/login" rel="noopener noreferrer">

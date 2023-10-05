@@ -5,8 +5,6 @@ import NavBar from "../Navigation/NavBar";
 export default function About() {
   return (
     <div>
-      <NavBar />
-      <Header />
       <h2>About Drink Sync</h2>
       <p>
         Welcome to Drink Sync, where we help you save money on cocktails without

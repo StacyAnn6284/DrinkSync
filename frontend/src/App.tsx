@@ -12,16 +12,13 @@ import SubstituteSubmission from "./components/SubstituteSubmission/substituteSu
 import { Menu } from "./components/Menu/Menu";
 import NavBar from "./components/Navigation/NavBar";
 import About from "./components/Pages/About";
-
-// import { Favorites } from "./favorites/Favorites";
-
 import UserContext from "./components/Context/UserContext";
 import { UserProvider } from "./components/Context/UserContextProvider";
-
+import { Favorites } from "./favorites/Favorites";
+import { FavoritesContextProvider } from "./favorites/FavoritesContextProvider";
 
 function App() {
   const [currentForm, setCurrentForm] = useState("login");
-
 
   const toggleForm = (formName: React.SetStateAction<string>) => {
     setCurrentForm(formName);
@@ -29,30 +26,31 @@ function App() {
 
   const { user } = useContext(UserContext);
   return (
-
-
     <UserProvider>
-      <div className="App">
-        <Router>
-          <NavBar />
-          <Routes>
-            <Route
-              path="/login"
-              element={
-                currentForm === "login" ? (
-                  <Login onFormSwitch={toggleForm} history={undefined} />
-                ) : (
-                  <Signup onFormSwitch={toggleForm} />
-                )
-              }
-            ></Route>
-            <Route path="/" element={<Main user={user} />}></Route>
-             <Route path="/substitutes" element={<AllSubstitutes />}></Route>
-            <Route path="/about" element={<About />}></Route>
-          </Routes>
-          <Footer></Footer>
-        </Router>
-      </div>
+      <FavoritesContextProvider>
+        <div className="App">
+          <Router>
+            <NavBar />
+            <Routes>
+              <Route
+                path="/login"
+                element={
+                  currentForm === "login" ? (
+                    <Login onFormSwitch={toggleForm} history={undefined} />
+                  ) : (
+                    <Signup onFormSwitch={toggleForm} />
+                  )
+                }
+              ></Route>
+              <Route path="/" element={<Main user={user} />}></Route>
+              {/* <Route path="/substitutes" element={<AllSubstitutes />}></Route> */}
+              <Route path="/about" element={<About />}></Route>
+              <Route path="/favorites" element={<Favorites />}></Route>
+            </Routes>
+            <Footer></Footer>
+          </Router>
+        </div>
+      </FavoritesContextProvider>
     </UserProvider>
   );
 }
