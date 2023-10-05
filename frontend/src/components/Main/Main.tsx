@@ -18,9 +18,7 @@ import { DRINK } from "../../Models/drink";
 
 
 
-
-
-  // reference to the query params
+// reference to the query params
 
 interface MainProps {
   user: any;

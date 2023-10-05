@@ -44,8 +44,10 @@ export default function NavBar() {
             </li>
           </ul>
         </div>
+
         {user ? (
           <div className="userOptions">
+
             <div className="profile">
               <p className="color">Welcome, {user.displayName}!</p>
               {user.photoURL && (
@@ -56,7 +58,11 @@ export default function NavBar() {
               <button className="buttonStyle" onClick={logout}>
                 Log Out
               </button>
+                 <p>
+              <Link to="/favorites">Saved Drinks</Link>
+            </p>
             </div>
+
           </div>
         ) : (
           <Link className="signin" to="/login" rel="noopener noreferrer">

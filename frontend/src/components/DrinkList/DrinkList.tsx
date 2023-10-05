@@ -6,9 +6,10 @@ import "./DrinkList.css";
 interface DrinkListProps {
   drinks: DRINK[];
   largeCard: boolean;
+  favorites?: boolean;
 }
 
-export const DrinkList = ({ drinks, largeCard }: DrinkListProps) => {
+export const DrinkList = ({ drinks, largeCard, favorites }: DrinkListProps) => {
   // setting up two columns to be used with desktop view
   const halfway = Math.floor(drinks.length / 2);
 
@@ -21,6 +22,7 @@ export const DrinkList = ({ drinks, largeCard }: DrinkListProps) => {
               key={drink.idDrink}
               largeCard={largeCard}
               drink={drink}
+              favorited={favorites}
             ></DrinkCard>
           ))}
         </div>
@@ -30,6 +32,7 @@ export const DrinkList = ({ drinks, largeCard }: DrinkListProps) => {
               key={drink.idDrink}
               largeCard={largeCard}
               drink={drink}
+              favorited={favorites}
             ></DrinkCard>
           ))}
         </div>

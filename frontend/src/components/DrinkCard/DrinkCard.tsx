@@ -1,18 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { DRINK } from "../../Models/drink";
 import "./DrinkCard.css";
 import { Link } from "react-router-dom";
 import { getDrinkbyID } from "../../services/drinkServices";
+import FavoritesContext from "../../favorites/FavoritesContext";
 
 // passing each individual drink down from DrinkList
 interface DrinkCardProps {
   drink: DRINK;
   largeCard: boolean;
+  favorited?: boolean;
 }
 
-export const DrinkCard = ({ drink, largeCard }: DrinkCardProps) => {
+export const DrinkCard = ({ drink, largeCard, favorited }: DrinkCardProps) => {
   const [expanded, setExpanded] = useState(largeCard);
+  const { addFavorite, removeFavorite } = useContext(FavoritesContext);
+
   const handleExpand = () => {
     setExpanded(!expanded);
   };
@@ -30,9 +34,27 @@ export const DrinkCard = ({ drink, largeCard }: DrinkCardProps) => {
   }, [expanded]);
 
   return (
-    <li className={expanded ? "bigger" : "smaller"} onClick={handleExpand}>
+    <li className={expanded ? "bigger" : "smaller"}>
       <div className="drinkHeading">
-        <h3>{drinkbyID.strDrink}</h3>
+        <div className="nameAndButtons">
+          <h3>{drinkbyID.strDrink}</h3>
+          <div className="button">
+            <button
+              onClick={() => {
+                if (!favorited) {
+                  addFavorite(drink);
+                } else {
+                  removeFavorite(drink);
+                }
+              }}
+            >
+              {!favorited ? "Save Drink" : "Unsave"}
+            </button>
+            <button onClick={handleExpand}>
+              {expanded ? "See Less" : "Full Recipe"}
+            </button>
+          </div>
+        </div>
         <img src={drinkbyID.strDrinkThumb}></img>
       </div>
       {expanded && (

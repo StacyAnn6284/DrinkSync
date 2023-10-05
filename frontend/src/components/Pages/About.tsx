@@ -11,6 +11,7 @@ import "../Pages/About.css";
 
 export default function About() {
   return (
+
     <>
       <h1 className="pageTitle, centerText ">Drink Sync</h1>
       <div className="aboutContainer">
@@ -141,5 +142,6 @@ export default function About() {
         </div>
       </div>
     </>
+
   );
 }
