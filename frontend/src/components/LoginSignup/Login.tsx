@@ -101,13 +101,6 @@ export const Login: React.FC<LoginProps> = (props) => {
           name="password"
         />
       </form>
-      {/* {user ? (
-       
-        <>
-          <p>Welcome, {user.displayName}!</p>
-          <button onClick={logout}>Log Out</button>
-        </>
-      ) : ( */}
 
       <>
         <Link to={"/"}>

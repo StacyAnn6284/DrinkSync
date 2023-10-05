@@ -6,6 +6,7 @@ import {
   User,
   createUserWithEmailAndPassword,
   signInWithPopup,
+  signOut,
   User as FirebaseUser,
 } from "firebase/auth";
 import { auth, googlePRovider } from "../../firebase";
@@ -41,13 +42,9 @@ export const Signup: React.FC<SignupProps> = (props) => {
 
   const signInWithGoogle = async () => {
     try {
-      // You can customize the email and password for Google Sign-Up
-      // const googleEmail = "user@example.com";
-      // const googlePassword = "password";
       const userCredential = await signInWithPopup(auth, googlePRovider);
       const user = userCredential.user;
       setUser(user);
-      // navigate("/");
       const randomString = Math.random().toString(36).substring(7);
       const googleEmail = `user+${randomString}@example.com`;
       const googlePassword = "password";
@@ -59,6 +56,15 @@ export const Signup: React.FC<SignupProps> = (props) => {
       console.error("Error signing up with Google:", error);
     }
   };
+
+  // const logout = async () => {
+  //   try {
+  //     await signOut(auth);
+  //     setUser(null);
+  //   } catch (err) {
+  //     console.error("Error signing in with Google:", err);
+  //   }
+  // };
 
   return (
     <div className="formCantaner">

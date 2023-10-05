@@ -1,27 +1,30 @@
 import React, { useState } from "react";
-import SubstituteService from "../../services/substituteService";
-import "../substitutes/substitutes.css";
+import SubstituteService from "../../../services/substituteService";
+import "../../AllSubstitutes/substitutes/substitutes.css";
 
+//Defining the SubstituteSubmission component
 const SubstituteSubmission: React.FC = () => {
+  //State to manage the form input fields and submission status
   const [missingIngredient, setMissingIngredient] = useState("");
   const [solution, setSolution] = useState("");
   const [submissionStatus, setSubmissionStatus] = useState("");
 
+  //Handle the form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Create a new Substitute object
+    // Create a new Substitute object from the form inputs
     const newSubstitute = {
       missingIngredient,
       solution,
     };
 
     try {
-      // Send new substitute to backend
+      // Send new substitute to backend for instertion into the mongo database
       await SubstituteService.createSubstitute(newSubstitute);
       setSubmissionStatus("Submission successful!");
 
-      // Clear the form after successful submission
+      // Clear the form input after a successful submission
       setMissingIngredient("");
       setSolution("");
     } catch (error) {
@@ -55,7 +58,12 @@ const SubstituteSubmission: React.FC = () => {
           Submit
         </button>
       </form>
-      <p>{submissionStatus}</p>
+      <p
+        className="
+      submission-status"
+      >
+        {submissionStatus}
+      </p>
     </div>
   );
 };
